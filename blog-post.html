@@ -1,0 +1,859 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">Blog | Sri Amutha Dental Care</title>
+  <meta name="description" content="Read our latest insights and tips on dental health and treatments.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"></noscript></noscript>
+  <link rel="stylesheet" href="style.min.css?v=131">
+  <style>
+    /* ── Blog Post Page ── */
+    .bp-hero {
+      width: 100%;
+      margin-top: 158px;
+      background: #f4ddc9;
+      padding: 60px 50px 50px;
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+    }
+    .bp-hero::before {
+      display: none;
+    }
+    .bp-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .bp-article-img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 16px 40px rgba(2,23,26,0.08);
+      display: block;
+    }
+    .bp-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #0D4842;
+      font-size: 13.5px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 22px;
+      transition: color 0.2s;
+    }
+    .bp-back-link:hover { color: var(--gold-dark); }
+    .bp-cat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+      width: fit-content;
+    }
+    .bp-cat-badge.preventive { background: rgba(13,72,66,0.85); color: #7dffd0; border: 1px solid rgba(125,255,208,0.3); }
+    .bp-cat-badge.restorative { background: rgba(184,112,10,0.85); color: #ffe4a0; border: 1px solid rgba(255,228,160,0.3); }
+    .bp-cat-badge.cosmetic { background: rgba(124,58,237,0.85); color: #e9d5ff; border: 1px solid rgba(233,213,255,0.3); }
+    .bp-cat-badge.orthodontic { background: rgba(29,78,216,0.85); color: #bfdbfe; border: 1px solid rgba(191,219,254,0.3); }
+    .bp-cat-badge.paediatric { background: rgba(185,28,28,0.85); color: #fecaca; border: 1px solid rgba(254,202,202,0.3); }
+    .bp-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(24px, 4vw, 44px);
+      font-weight: 700;
+      color: #0D4842;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      max-width: 780px;
+    }
+    .bp-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 13.5px;
+      color: #2b3a3c;
+      flex-wrap: wrap;
+    }
+    .bp-hero-meta span { display: flex; align-items: center; gap: 7px; }
+    .bp-hero-meta-div { width: 1px; height: 14px; background: rgba(13,72,66,0.2); }
+
+    /* ── Article Wrap ── */
+    .bp-wrap {
+      background: #f5f4f0;
+      padding: 70px 50px 100px;
+    }
+    .bp-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      padding: 60px 70px 70px;
+      box-shadow: 0 8px 40px rgba(2,23,26,0.07);
+    }
+    .bp-content { color: #3b4c4e; }
+    .bp-content > p:first-child {
+      font-size: 18px;
+      line-height: 1.85;
+      color: #2b3a3c;
+      margin-bottom: 28px;
+    }
+    .bp-content p {
+      font-size: 16px;
+      line-height: 1.85;
+      color: #3b4c4e;
+      margin-bottom: 22px;
+    }
+    .bp-content h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 700;
+      color: #0D4842;
+      margin: 52px 0 16px;
+      padding-left: 20px;
+      border-left: 4px solid var(--gold-primary);
+      line-height: 1.25;
+    }
+    .bp-content h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: #021a1d;
+      margin: 36px 0 12px;
+    }
+    .bp-content ul {
+      margin: 0 0 24px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .bp-content ul li {
+      font-size: 15.5px;
+      color: #3b4c4e;
+      line-height: 1.75;
+      padding: 9px 0 9px 30px;
+      position: relative;
+      border-bottom: 1px solid rgba(13,72,66,0.06);
+    }
+    .bp-content ul li:last-child { border-bottom: none; }
+    .bp-content ul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 18px;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--gold-primary);
+    }
+    .bp-content blockquote {
+      border-left: 4px solid var(--gold-primary);
+      background: #f5f4f0;
+      padding: 24px 30px;
+      margin: 40px 0;
+      border-radius: 0 16px 16px 0;
+      font-style: italic;
+      font-size: 17.5px;
+      color: #0D4842;
+      line-height: 1.65;
+    }
+    .bp-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, #0D4842, var(--gold-primary));
+      border-radius: 2px;
+      margin: 44px 0;
+    }
+    .bp-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 28px 0 36px;
+    }
+    .bp-info-card {
+      background: #f5f4f0;
+      border-radius: 16px;
+      padding: 26px;
+      border: 1.5px solid rgba(13,72,66,0.07);
+    }
+    .bp-info-card h4 { font-size: 15px; font-weight: 700; color: #0D4842; margin-bottom: 8px; }
+    .bp-info-card p { font-size: 14.5px !important; color: #556c6a !important; line-height: 1.6 !important; margin: 0 !important; }
+    .bp-services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px; margin: 20px 0 32px;
+    }
+    .bp-service-item {
+      display: flex; align-items: center; gap: 10px;
+      background: #f5f4f0; padding: 12px 16px;
+      border-radius: 10px; font-size: 14.5px; font-weight: 500;
+      color: #021a1d; border: 1px solid rgba(13,72,66,0.07);
+    }
+    .bp-service-item svg { color: var(--gold-primary); flex-shrink: 0; }
+
+    /* ── CTA ── */
+    .bp-cta {
+      background: linear-gradient(135deg, #0D4842 0%, #021a1d 100%);
+      border-radius: 24px;
+      padding: 60px 50px;
+      text-align: center;
+      margin-top: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bp-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(223,155,67,0.15), transparent 55%);
+      pointer-events: none;
+    }
+    .bp-cta-inner { position: relative; z-index: 1; }
+    .bp-cta h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(22px, 3vw, 32px);
+      color: #fff; font-weight: 700; margin-bottom: 12px;
+    }
+    .bp-cta p { color: rgba(255,255,255,0.7); font-size: 15.5px; margin-bottom: 28px; }
+    .bp-cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gradient-gold); color: #fff;
+      padding: 15px 36px; border-radius: 50px;
+      font-size: 15px; font-weight: 700;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: var(--font-primary);
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 8px 24px rgba(223,155,67,0.3);
+    }
+    .bp-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(223,155,67,0.45); }
+
+    /* ── Related Posts ── */
+    .bp-related { max-width: 860px; margin: 50px auto 0; }
+    .bp-related-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 24px; font-weight: 700; color: #021a1d;
+      margin-bottom: 28px;
+    }
+    .bp-related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .bp-related-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(2,23,26,0.05);
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: block;
+    }
+    .bp-related-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(2,23,26,0.1); }
+    .bp-related-img { width: 100%; height: 140px; object-fit: cover; display: block; }
+    .bp-related-body { padding: 18px 20px; }
+    .bp-related-body h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px; font-weight: 700; color: #021a1d;
+      line-height: 1.35; margin-bottom: 6px;
+    }
+    .bp-related-meta { font-size: 12px; color: #8a9e9c; }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+      .bp-hero { margin-top: 68px; padding: 40px 24px 30px; }
+      .bp-article-img { height: 280px; margin-bottom: 30px; }
+      .bp-wrap { padding: 40px 20px 70px; }
+      .bp-inner { padding: 36px 26px 50px; }
+      .bp-info-grid, .bp-services-grid { grid-template-columns: 1fr; }
+      .bp-cta { padding: 40px 24px; }
+      .bp-related-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 576px) {
+      .bp-hero-title { font-size: 22px; }
+      .bp-inner { padding: 28px 18px 40px; }
+    }
+  </style>
+
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"></noscript>
+  <title>Blog Post | Sri Amutha Dental Care</title>
+  <link rel="canonical" href="https://sriamuthadental.com/blog-post.html">
+</head>
+<body>
+
+  <!-- Premium Header -->
+  <header class="main-header">
+    <div class="header-top">
+      <div class="header-top-container">
+        <div class="header-top-left">
+          <div class="top-info-item">
+            <svg class="top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Thuraiyur, Trichy</span>
+          </div>
+          <div class="top-info-item">
+            <svg class="top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>9 AM - 9 PM</span>
+          </div>
+        </div>
+        <a href="index.html" class="logo-container" aria-label="Sri Amutha Dental Care Home">
+          <img loading="lazy" src="logo_icon.webp?v=3" alt="Sri Amutha Dental Care" class="logo-img-icon" width="60" height="72">
+          <img loading="lazy" src="logo_name.webp?v=4" alt="Sri Amutha Dental Care Name" class="logo-img-name" width="170" height="72">
+        </a>
+        <div class="header-top-right">
+          <div class="top-info-item">
+            <svg class="top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <a aria-label="Link" href="tel:+919843543812">+91 98435 43812</a>
+          </div>
+          <a aria-label="Link" href="#" class="btn-book-top" data-modal="apptModal">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+    <div class="header-bottom">
+      <div class="header-bottom-container">
+        <a href="index.html" class="logo-container mobile-logo-only" aria-label="Sri Amutha Dental Care Home">
+          <img loading="lazy" src="logo_icon.webp?v=3" alt="Sri Amutha Dental Care" class="logo-img-icon" width="34" height="40">
+          <img loading="lazy" src="logo_name.webp?v=4" alt="Sri Amutha Dental Care Name" class="logo-img-name" width="95" height="40">
+        </a>
+        <nav class="nav-menu" id="navMenu">
+          <ul>
+            <li><a aria-label="Link" href="index.html" class="nav-link">Home</a></li>
+            <li><a aria-label="Link" href="about.html" class="nav-link">About Us</a></li>
+            <li><a aria-label="Link" href="treatments.html" class="nav-link">Treatments</a></li>
+            <li><a aria-label="Link" href="doctors.html" class="nav-link">Our Doctors</a></li>
+            <li><a aria-label="Link" href="index.html#testimonials" class="nav-link">Reviews</a></li>
+            <li><a aria-label="Link" href="academy.html" class="nav-link">Academy</a></li>
+            <li><a aria-label="Link" href="blog.html" class="nav-link active">Blog</a></li>
+            <li><a aria-label="Link" href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="mobile-nav-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero — populated by JS -->
+    <div class="bp-hero" id="bpHero">
+      <div class="bp-hero-content">
+        <a aria-label="Link" href="blog.html" class="bp-back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to All Articles
+        </a>
+        <div id="bpCatBadge"></div>
+        <h1 class="bp-hero-title" id="bpTitle">Loading...</h1>
+        <div class="bp-hero-meta">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span id="bpDate">July 2025</span>
+          </span>
+          <div class="bp-hero-meta-div"></div>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span id="bpReadTime">6 min read</span>
+          </span>
+          <div class="bp-hero-meta-div"></div>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            Sri Amutha Dental Care Team
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article Body — populated by JS -->
+    <section class="bp-wrap">
+      <div class="bp-inner">
+        <!-- Main Article Image (Displayed separately here) -->
+        <img height="684" width="1024" loading="lazy" id="bpArticleImg" src="assets/images/blog01-1024x684.webp" alt="Blog Article" class="bp-article-img">
+        <article class="bp-content" id="bpContent">
+          <p>Loading article...</p>
+        </article>
+
+        <!-- CTA -->
+        <div class="bp-cta">
+          <div class="bp-cta-inner">
+            <h2>Ready for Your Next Appointment?</h2>
+            <p>Our experienced team at Sri Amutha Dental Care is here to support your long-term oral health goals.</p>
+            <button class="bp-cta-btn" data-modal="apptModal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Book an Appointment
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Posts -->
+      <div class="bp-related">
+        <h3 class="bp-related-title">Related Articles</h3>
+        <div class="bp-related-grid" id="bpRelated"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img loading="lazy" src="logo_icon.webp?v=3" alt="Sri Amutha Dental Care" class="footer-logo-img-icon" width="34" height="40">
+          <img loading="lazy" src="logo_name.webp?v=4" alt="Sri Amutha Dental Care Name" class="footer-logo-img-name" width="95" height="40">
+        </div>
+        <p class="footer-brand-desc">Experience world-class dental care with a gentle touch. Your healthy smile is our greatest reward.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/share/18m7gcki8u/?mibextid=wwXIfr" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/sri_amutha_dental_care?igsh=a2M4YmFkaDNvb2Y0&utm_source=qr" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://wa.me/919600043812?text=Message%20Sri%20Amutha%20Dental%20Care%20on%20WhatsApp." target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3 class="footer-col-title">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a aria-label="Link" href="about.html">About Us</a></li>
+          <li><a aria-label="Link" href="index.html#our-services">Our Services</a></li>
+          <li><a aria-label="Link" href="doctors.html">Our Doctors</a></li>
+          <li><a aria-label="Link" href="blog.html">Blog</a></li>
+          <li><a aria-label="Link" href="academy.html">Academy</a></li>
+          <li><a aria-label="Link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-services-col">
+        <h3 class="footer-col-title">Our Services</h3>
+        <ul class="footer-links-grid">
+                    <li><a aria-label="Link" href="treatment-detail.html?service=cleaning">General dentistry</a></li>
+          <li><a aria-label="Link" href="treatment-detail.html?service=root-canal">Root Canal Treatment</a></li>
+          <li><a aria-label="Link" href="treatment-detail.html?service=smile-design">Smile designing</a></li>
+          <li><a aria-label="Link" href="treatment-detail.html?service=whitening">Teeth whitening</a></li>
+          <li><a aria-label="Link" href="treatment-detail.html?service=gum">Gum care</a></li>
+          <li><a aria-label="Link" href="treatment-detail.html?service=kids">Kids dentistry</a></li>
+          <li><a aria-label="Link" href="treatments.html">More &rarr;</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3 class="footer-col-title">Contact Us</h3>
+        <ul class="footer-contact-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            23A, Salai Mariyamman Kovil Street,<br>Trichy Main Road, Thuraiyur - 621010
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6.29 6.29l.95-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +91 98435 43812
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            info@sriamuthadental.com
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Sri Amutha Dental Care. All rights reserved.</p>
+      <p class="footer-dev-credit">Website Developed by Malaveeka Sridhar</p>
+      <div class="footer-bottom-links"><a aria-label="Link" href="#">Privacy Policy</a><a aria-label="Link" href="#">Terms of Service</a></div>
+    </div>
+  </footer>
+
+  <!-- Appointment booking Modal -->
+  <div class="appt-modal-overlay" id="apptModal" role="dialog" aria-modal="true" aria-labelledby="apptModalTitle">
+    <div class="appt-modal-box">
+      <button class="appt-modal-close" id="apptModalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="appt-modal-header">
+        <div class="appt-modal-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h2 class="appt-modal-title" id="apptModalTitle">Book an Appointment</h2>
+        <p class="appt-modal-subtitle">Fill in your details and we'll confirm your slot shortly.</p>
+      </div>
+      <form class="appt-modal-form" id="apptModalForm" novalidate>
+        <div class="appt-modal-field full-width">
+          <label for="modal-service">Select Service <span class="req">*</span></label>
+          <select id="modal-service" required>
+            <option value="" disabled selected>— Select Treatment —</option>
+            <option>General dentistry</option><option>Root Canal Treatment</option>
+            <option>Smile designing</option><option>Teeth whitening</option>
+            <option>Gum care</option><option>Kids dentistry</option>
+            <option>Dental implants</option><option>Preventive dentistry</option><option>Other</option>
+          </select>
+        </div>
+        <div class="appt-modal-row">
+          <div class="appt-modal-field"><label for="modal-name">Full Name <span class="req">*</span></label><input type="text" id="modal-name" placeholder="Your full name" required></div>
+          <div class="appt-modal-field"><label for="modal-phone">Phone Number <span class="req">*</span></label><input type="tel" id="modal-phone" placeholder="+91 98XXX XXXXX" required></div>
+        </div>
+        <div class="appt-modal-row">
+          <div class="appt-modal-field"><label for="modal-date">Preferred Date <span class="req">*</span></label><input type="date" id="modal-date" required></div>
+          <div class="appt-modal-field">
+            <label for="modal-time">Preferred Time</label>
+            <select id="modal-time">
+              <option value="" disabled selected>— Select Time —</option>
+              <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
+              <option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option>
+              <option>5:00 PM</option><option>6:00 PM</option><option>7:00 PM</option><option>8:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="appt-modal-field full-width"><label for="modal-message">Any Message (optional)</label><textarea id="modal-message" rows="3" placeholder="Describe your concern..."></textarea></div>
+        <button type="submit" class="appt-modal-submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>
+          Confirm Appointment
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/919600043812?text=Message%20Sri%20Amutha%20Dental%20Care%20on%20WhatsApp." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.62.962 3.206 1.488 4.887 1.489 5.485 0 9.948-4.467 9.95-9.95.002-2.656-1.03-5.153-2.906-7.03C16.702 1.787 14.207.755 11.556.755c-5.495 0-9.958 4.468-9.96 9.953-.001 1.758.498 3.42 1.442 4.965l-.996 3.637 3.725-.976h.286zm12.333-6.202c-.328-.164-1.94-.957-2.24-1.066-.3-.11-.518-.164-.737.164-.22.328-.847 1.067-1.038 1.285-.19.219-.383.246-.71.082-.328-.164-1.385-.51-2.637-1.628-.975-.87-1.633-1.944-1.825-2.272-.19-.329-.02-.507.144-.67.148-.147.328-.383.493-.574.164-.192.22-.328.328-.547.11-.219.055-.41-.027-.574-.082-.164-.737-1.775-1.01-2.43-.266-.64-.537-.552-.737-.563-.19-.009-.41-.01-.628-.01-.22 0-.574.082-.875.41-.3.328-1.147 1.12-1.147 2.73 0 1.611 1.175 3.167 1.338 3.385.164.218 2.311 3.528 5.597 4.945.782.337 1.392.538 1.868.69.786.25 1.5.214 2.064.13.629-.093 1.939-.793 2.213-1.558.273-.765.273-1.42.191-1.558-.082-.137-.3-.218-.628-.382z"/></svg>
+  </a>
+
+  <!-- Blog Post Data & Render Script -->
+  <script>
+  (function() {
+    const POSTS = {
+      'preventive-care': {
+        title: 'The Importance of Preventive Dental Care: A Comprehensive Guide to Lifelong Oral Health',
+        category: 'preventive', categoryLabel: 'Preventive Care',
+        date: 'July 2025', readTime: '12 min read',
+        img: 'assets/images/preventive_care_guide.webp',
+        content: `
+          <p>Maintaining excellent oral health is essential not only for a confident smile but also for your overall well-being. Preventive dentistry focuses on identifying and addressing potential dental concerns before they progress into more complex conditions, helping patients preserve their natural teeth and minimize the need for extensive treatment.</p>
+          <p>At our clinic, we believe that preventive care is the foundation of long-term oral health. Through regular examinations, professional cleanings, and patient education, we help individuals and families achieve healthy, functional, and confident smiles.</p>
+          <blockquote>"Prevention is always better — and far less costly — than cure. A healthy smile today is the best investment in your well-being tomorrow."</blockquote>
+          <h2>Why Preventive Dentistry Matters</h2>
+          <p>Many dental conditions, including tooth decay and gum disease, develop gradually and often without noticeable symptoms in their early stages. By the time discomfort occurs, treatment may be more extensive and costly.</p>
+          <p>Routine dental visits enable early diagnosis and timely intervention, reducing the likelihood of serious complications while supporting optimal oral health throughout every stage of life.</p>
+          <div class="bp-divider"></div>
+          <h2>The Benefits of Regular Dental Checkups</h2>
+          <p>A comprehensive dental examination offers significantly more than a routine assessment of your teeth. During your appointment, your dentist evaluates the overall health of your mouth, gums, jaw, and surrounding oral tissues. Regular checkups help:</p>
+          <ul>
+            <li>Detect cavities before they become painful</li>
+            <li>Identify early signs of periodontal (gum) disease</li>
+            <li>Monitor existing restorations such as fillings and crowns</li>
+            <li>Screen for oral abnormalities and other potential concerns</li>
+            <li>Evaluate bite alignment and jaw function</li>
+            <li>Develop personalized preventive care recommendations</li>
+          </ul>
+          <div class="bp-divider"></div>
+          <h2>Professional Dental Cleanings: Beyond Daily Brushing</h2>
+          <p>Even with diligent brushing and flossing, plaque can harden into tartar in areas that are difficult to clean at home. Routine cleanings help eliminate plaque and tartar buildup, reduce the risk of gum disease, minimize tooth discoloration, improve oral hygiene, promote fresher breath, and preserve healthy teeth and gums.</p>
+          <div class="bp-divider"></div>
+          <h2>Daily Habits That Support a Healthy Smile</h2>
+          <div class="bp-info-grid">
+            <div class="bp-info-card"><h4>🪥 Brush Correctly</h4><p>Brush twice daily with fluoride toothpaste for at least two minutes, paying attention to the gumline.</p></div>
+            <div class="bp-info-card"><h4>🦷 Floss Every Day</h4><p>Flossing removes plaque from between teeth — areas a toothbrush cannot effectively reach.</p></div>
+            <div class="bp-info-card"><h4>🥗 Maintain a Balanced Diet</h4><p>A diet rich in vegetables, fruits, dairy, and lean proteins supports healthy teeth and gums.</p></div>
+            <div class="bp-info-card"><h4>💧 Stay Hydrated</h4><p>Water stimulates saliva production, naturally cleansing the mouth and neutralizing harmful acids.</p></div>
+          </div>
+          <div class="bp-divider"></div>
+          <h2>Recognizing Early Warning Signs</h2>
+          <ul>
+            <li>Bleeding gums during brushing or flossing</li>
+            <li>Persistent bad breath</li>
+            <li>Tooth sensitivity or toothache</li>
+            <li>Swollen or tender gums</li>
+            <li>Loose teeth or mouth sores that don't heal within two weeks</li>
+          </ul>
+          <div class="bp-divider"></div>
+          <h2>Why Choose Sri Amutha Dental Care?</h2>
+          <p>Our commitment extends beyond treating dental conditions — we focus on building lasting relationships through exceptional patient care and clinical excellence. Using modern technology, evidence-based treatment protocols, and a patient-centered approach, we deliver high-quality dental care in a comfortable and welcoming environment.</p>
+        `
+      },
+      'root-canal': {
+        title: 'Root Canal Treatment: Separating Myths from Facts',
+        category: 'restorative', categoryLabel: 'Restorative',
+        date: 'June 2025', readTime: '6 min read',
+        img: 'assets/images/root_canal_myths.webp',
+        content: `
+          <p>Root canal therapy is one of the most misunderstood dental procedures. Modern techniques make it comfortable and efficient — often no more invasive than a routine filling. Yet many patients approach it with unnecessary anxiety.</p>
+          <blockquote>"A root canal doesn't cause pain — it relieves it. Modern techniques make the procedure comfortable and remarkably effective."</blockquote>
+          <h2>What Is a Root Canal?</h2>
+          <p>A root canal treatment (also called endodontic therapy) is a procedure to treat infection or damage inside a tooth. The soft tissue inside the tooth — called the pulp — can become infected due to deep decay, repeated dental procedures, or a cracked tooth. When this happens, the bacteria can spread and cause significant pain and swelling.</p>
+          <div class="bp-divider"></div>
+          <h2>Common Myths Debunked</h2>
+          <ul>
+            <li><strong>Myth: Root canals are very painful.</strong> Modern anaesthesia makes the procedure virtually pain-free. Most patients report feeling no more discomfort than a standard filling.</li>
+            <li><strong>Myth: Extraction is better than a root canal.</strong> Saving your natural tooth is almost always the best option. Implants and bridges are excellent alternatives, but nothing replaces your original tooth completely.</li>
+            <li><strong>Myth: Root canals cause illness.</strong> This myth originated from debunked 100-year-old research. Root canal treatment is safe and does not cause systemic disease.</li>
+            <li><strong>Myth: The tooth will be weak after treatment.</strong> A crown placed after the procedure restores full strength and function to the tooth.</li>
+          </ul>
+          <div class="bp-divider"></div>
+          <h2>Signs You May Need a Root Canal</h2>
+          <ul>
+            <li>Severe toothache, especially when chewing or applying pressure</li>
+            <li>Prolonged sensitivity to hot or cold temperatures</li>
+            <li>Darkening or discolouration of the tooth</li>
+            <li>Swollen or tender gums near the affected tooth</li>
+            <li>A persistent pimple on the gums</li>
+          </ul>
+          <div class="bp-divider"></div>
+          <h2>The Root Canal Procedure</h2>
+          <p>At Sri Amutha Dental Care, we use advanced rotary endodontic instruments and digital imaging for precise, comfortable root canal treatment. The procedure typically involves local anaesthesia, removal of infected pulp, cleaning and shaping the canals, filling with a biocompatible material, and placement of a crown for protection.</p>
+          <p>Most patients return to normal activities the next day. With proper care, a treated tooth can last a lifetime.</p>
+        `
+      },
+      'smile-design': {
+        title: 'Smile Designing: Crafting Your Perfect Aesthetic Smile',
+        category: 'cosmetic', categoryLabel: 'Cosmetic',
+        date: 'June 2025', readTime: '7 min read',
+        img: 'assets/images/smile_designing_aesthetic.webp',
+        content: `
+          <p>Smile designing blends art with science — using veneers, whitening, contouring and bonding to create a smile uniquely suited to your face shape, skin tone and personality. A beautiful smile can transform not just your appearance, but your confidence and quality of life.</p>
+          <blockquote>"A smile is the most beautiful thing you can wear. Smile designing allows us to create one that's uniquely and perfectly yours."</blockquote>
+          <h2>What Is Smile Designing?</h2>
+          <p>Smile designing (also called a smile makeover) is a comprehensive aesthetic dental treatment that combines multiple procedures to improve the appearance of your smile. It considers factors such as tooth colour, shape, size, alignment, and the relationship between your teeth, gums, lips, and facial features.</p>
+          <div class="bp-divider"></div>
+          <h2>Procedures Used in Smile Designing</h2>
+          <h3>Dental Veneers</h3>
+          <p>Thin porcelain or composite shells bonded to the front surface of teeth to correct discolouration, chips, cracks, or minor misalignment. Veneers are durable, natural-looking, and resistant to staining.</p>
+          <h3>Teeth Whitening</h3>
+          <p>Professional whitening treatments can brighten your smile by several shades in a single session, removing stains caused by coffee, tea, wine, and ageing.</p>
+          <h3>Dental Bonding</h3>
+          <p>A tooth-coloured composite resin applied directly to teeth to repair chips, close gaps, or reshape teeth. A quick, cost-effective cosmetic solution.</p>
+          <h3>Gum Contouring</h3>
+          <p>Reshaping the gum line to create a more balanced, symmetrical smile — ideal for patients with a "gummy smile" or uneven gum margins.</p>
+          <div class="bp-divider"></div>
+          <h2>The Smile Design Process</h2>
+          <ul>
+            <li><strong>Digital Smile Analysis:</strong> Using photographs and digital tools, we map your ideal smile proportions</li>
+            <li><strong>Treatment Planning:</strong> A personalised plan combining the right procedures for your goals</li>
+            <li><strong>Mockup Preview:</strong> A trial smile so you can visualise results before committing</li>
+            <li><strong>Treatment Execution:</strong> Precise, staged procedures for beautiful, long-lasting results</li>
+          </ul>
+        `
+      },
+      'clear-aligners': {
+        title: 'Clear Aligners vs. Traditional Braces: Which Is Right for You?',
+        category: 'orthodontic', categoryLabel: 'Orthodontic',
+        date: 'May 2025', readTime: '8 min read',
+        img: 'assets/images/clear_aligners_vs_braces.webp',
+        content: `
+          <p>Both clear aligners and braces are effective orthodontic options — but the right choice depends on your lifestyle, correction needs, and commitment level. Understanding the differences can help you make the best decision for your smile.</p>
+          <blockquote>"Straighter teeth aren't just about aesthetics — correct alignment reduces the risk of decay, gum disease, and jaw problems."</blockquote>
+          <h2>Clear Aligners: The Modern Alternative</h2>
+          <p>Clear aligners (such as Invisalign) are a series of custom-made, transparent plastic trays that gradually move teeth into the desired position. They are removable, nearly invisible, and require no dietary restrictions.</p>
+          <ul>
+            <li>Virtually invisible — ideal for adults and professionals</li>
+            <li>Removable for eating, brushing, and flossing</li>
+            <li>Smooth, comfortable fit with no metal brackets or wires</li>
+            <li>Fewer emergency visits for broken brackets or wires</li>
+            <li>Requires discipline — must be worn 20–22 hours per day</li>
+          </ul>
+          <div class="bp-divider"></div>
+          <h2>Traditional Braces: Tried and Tested</h2>
+          <p>Metal or ceramic brackets bonded to teeth and connected by wires, adjusted periodically to move teeth. Highly effective for complex corrections.</p>
+          <ul>
+            <li>Effective for all levels of misalignment, including complex cases</li>
+            <li>No compliance issues — braces are fixed and work continuously</li>
+            <li>Generally more affordable than clear aligners</li>
+            <li>Available in metal or tooth-coloured ceramic options</li>
+            <li>Dietary restrictions apply (avoid hard, sticky foods)</li>
+          </ul>
+          <div class="bp-divider"></div>
+          <h2>Which Should You Choose?</h2>
+          <div class="bp-info-grid">
+            <div class="bp-info-card"><h4>Choose Clear Aligners If...</h4><p>You want a discreet option, have mild to moderate misalignment, and can commit to wearing them consistently.</p></div>
+            <div class="bp-info-card"><h4>Choose Braces If...</h4><p>You have complex bite issues, are treating a child or teenager, or prefer a fixed treatment that requires no daily management.</p></div>
+          </div>
+          <p>At Sri Amutha Dental Care, our orthodontic specialists will evaluate your teeth, bite, and goals to recommend the most effective treatment for your unique situation.</p>
+        `
+      },
+      'kids-dentistry': {
+        title: "Building Healthy Habits: A Parent's Guide to Children's Oral Health",
+        category: 'paediatric', categoryLabel: 'Paediatric',
+        date: 'May 2025', readTime: '5 min read',
+        img: 'assets/images/children_oral_health.webp',
+        content: `
+          <p>Early dental visits and consistent home care set the foundation for a lifetime of healthy smiles. The habits children develop early in life directly influence their oral health as adults — making paediatric dental care a critical investment.</p>
+          <blockquote>"A child's first dental visit is one of the most important appointments they'll ever have. Early care sets the tone for a lifetime of healthy smiles."</blockquote>
+          <h2>When Should My Child First See a Dentist?</h2>
+          <p>The Indian Dental Association recommends that children have their first dental visit by age one, or within six months of the first tooth erupting. Early visits allow the dentist to monitor development, educate parents on proper care, and identify any concerns at the earliest stage.</p>
+          <div class="bp-divider"></div>
+          <h2>Age-by-Age Oral Health Guide</h2>
+          <h3>0–2 Years</h3>
+          <ul>
+            <li>Clean gums with a soft, damp cloth after feedings</li>
+            <li>When teeth appear, brush with a tiny smear of fluoride toothpaste</li>
+            <li>Avoid putting baby to sleep with a bottle of milk or juice</li>
+          </ul>
+          <h3>3–6 Years</h3>
+          <ul>
+            <li>Brush twice daily with a pea-sized amount of fluoride toothpaste</li>
+            <li>Begin supervised flossing when teeth start touching</li>
+            <li>First dental X-rays to monitor development</li>
+          </ul>
+          <h3>7–12 Years</h3>
+          <ul>
+            <li>Transition to independent brushing and flossing with supervision</li>
+            <li>Dental sealants on permanent molars to prevent decay</li>
+            <li>Orthodontic assessment if needed</li>
+          </ul>
+          <div class="bp-divider"></div>
+          <h2>Making Dental Visits Fun</h2>
+          <p>At Sri Amutha Dental Care, we create a warm, gentle, and child-friendly environment. Our paediatric approach focuses on building trust, minimising anxiety, and making every visit a positive experience — so children grow up viewing dental care as a normal, healthy part of life.</p>
+        `
+      },
+      'dental-implants': {
+        title: 'Dental Implants: The Long-Term Solution for Missing Teeth',
+        category: 'restorative', categoryLabel: 'Restorative',
+        date: 'April 2025', readTime: '9 min read',
+        img: 'assets/images/dental_implants_solution.webp',
+        content: `
+          <p>Dental implants are the gold standard for replacing missing teeth — providing permanent, natural-looking results that function just like your own teeth without impacting adjacent teeth. For millions of patients worldwide, implants have transformed their quality of life.</p>
+          <blockquote>"A dental implant is the closest thing to a natural tooth. It looks, feels, and functions like your own — and with proper care, it can last a lifetime."</blockquote>
+          <h2>What Is a Dental Implant?</h2>
+          <p>A dental implant is a small titanium post surgically placed into the jawbone to serve as an artificial tooth root. Once it integrates with the bone (a process called osseointegration), a crown is attached to restore full function and aesthetics.</p>
+          <div class="bp-divider"></div>
+          <h2>Why Choose Implants Over Other Options?</h2>
+          <div class="bp-info-grid">
+            <div class="bp-info-card"><h4>vs. Dentures</h4><p>Implants are fixed, eliminating slippage, discomfort, and the need for adhesives. No dietary restrictions and no nightly removal.</p></div>
+            <div class="bp-info-card"><h4>vs. Bridges</h4><p>Bridges require grinding down adjacent healthy teeth. Implants preserve neighbouring teeth entirely and prevent bone loss.</p></div>
+            <div class="bp-info-card"><h4>Bone Preservation</h4><p>Implants stimulate the jawbone like natural tooth roots, preventing the bone resorption that occurs after tooth loss.</p></div>
+            <div class="bp-info-card"><h4>Longevity</h4><p>With proper care, implants can last 20–30 years or a lifetime — making them the most cost-effective long-term solution.</p></div>
+          </div>
+          <div class="bp-divider"></div>
+          <h2>The Implant Procedure</h2>
+          <ul>
+            <li><strong>Consultation & Planning:</strong> 3D imaging and detailed treatment planning</li>
+            <li><strong>Implant Placement:</strong> Titanium post surgically placed under local anaesthesia</li>
+            <li><strong>Healing Period:</strong> 3–6 months for osseointegration</li>
+            <li><strong>Crown Placement:</strong> A custom-made ceramic crown is attached — completing your new tooth</li>
+          </ul>
+          <p>Success rates for dental implants exceed 95%. At Sri Amutha Dental Care, we use advanced guided implant surgery protocols for precision and safety.</p>
+        `
+      },
+      'gum-disease': {
+        title: 'Understanding Gum Disease: Early Signs and Prevention',
+        category: 'preventive', categoryLabel: 'Preventive Care',
+        date: 'April 2025', readTime: '6 min read',
+        img: 'assets/images/gum_disease_signs.webp',
+        content: `
+          <p>Periodontal disease is one of the leading causes of tooth loss in adults — yet it is largely preventable. Understanding gum disease and acting early can save your teeth and protect your overall health.</p>
+          <blockquote>"Healthy gums are the foundation of a healthy smile. Gum disease is silent in its early stages — which makes regular dental visits essential."</blockquote>
+          <h2>What Is Gum Disease?</h2>
+          <p>Gum disease (periodontal disease) is an infection of the tissues that hold your teeth in place. It is primarily caused by poor oral hygiene that allows plaque — a sticky film of bacteria — to build up on the teeth and harden into tartar.</p>
+          <div class="bp-divider"></div>
+          <h2>Two Stages of Gum Disease</h2>
+          <h3>Gingivitis (Early Stage)</h3>
+          <p>The mildest form of gum disease. Gums become red, swollen, and bleed easily. Gingivitis is reversible with professional treatment and improved home care. There is no bone or tissue loss at this stage.</p>
+          <h3>Periodontitis (Advanced Stage)</h3>
+          <p>If left untreated, gingivitis can advance to periodontitis. Gums pull away from teeth, forming pockets that become infected. The immune response and bacterial toxins start to destroy bone and connective tissue, eventually leading to tooth loss.</p>
+          <div class="bp-divider"></div>
+          <h2>Warning Signs to Watch For</h2>
+          <ul>
+            <li>Gums that bleed when you brush or floss</li>
+            <li>Red, swollen, or tender gums</li>
+            <li>Persistent bad breath</li>
+            <li>Receding gums or teeth that appear longer</li>
+            <li>Loose or shifting teeth</li>
+            <li>Changes in how teeth fit together when biting</li>
+          </ul>
+          <div class="bp-divider"></div>
+          <h2>Prevention and Treatment</h2>
+          <p>The most effective prevention is simple: brush twice daily, floss every day, and attend regular professional cleanings. For patients with periodontitis, our team offers scaling and root planing, surgical periodontal therapy, and ongoing maintenance to halt progression and restore gum health.</p>
+          <p>Research also links gum disease to systemic conditions including diabetes, heart disease, and pregnancy complications — making periodontal health a matter of whole-body wellness.</p>
+        `
+      }
+    };
+
+    const ALL_POSTS_LIST = [
+      { slug: 'preventive-care', img: 'assets/images/preventive_care_guide.webp', cat: 'preventive', title: 'The Importance of Preventive Dental Care', date: 'July 2025', readTime: '12 min' },
+      { slug: 'root-canal', img: 'assets/images/root_canal_myths.webp', cat: 'restorative', title: 'Root Canal Treatment: Myths vs. Facts', date: 'June 2025', readTime: '6 min' },
+      { slug: 'smile-design', img: 'assets/images/smile_designing_aesthetic.webp', cat: 'cosmetic', title: 'Smile Designing: Your Perfect Aesthetic Smile', date: 'June 2025', readTime: '7 min' },
+      { slug: 'clear-aligners', img: 'assets/images/clear_aligners_vs_braces.webp', cat: 'orthodontic', title: 'Clear Aligners vs. Traditional Braces', date: 'May 2025', readTime: '8 min' },
+      { slug: 'kids-dentistry', img: 'assets/images/children_oral_health.webp', cat: 'paediatric', title: "Parent's Guide to Children's Oral Health", date: 'May 2025', readTime: '5 min' },
+      { slug: 'dental-implants', img: 'assets/images/dental_implants_solution.webp', cat: 'restorative', title: 'Dental Implants: Long-Term Solution', date: 'April 2025', readTime: '9 min' },
+      { slug: 'gum-disease', img: 'assets/images/gum_disease_signs.webp', cat: 'preventive', title: 'Understanding Gum Disease: Signs & Prevention', date: 'April 2025', readTime: '6 min' }
+    ];
+
+    // Fix: use hash (#post=slug) instead of query string — hash is never sent to server
+    function getSlugFromHash() {
+      const hash = window.location.hash.slice(1); // remove the #
+      const params = new URLSearchParams(hash);
+      return params.get('post') || 'preventive-care';
+    }
+
+    function render() {
+      const slug = getSlugFromHash();
+      const post = POSTS[slug] || POSTS['preventive-care'];
+
+      document.getElementById('pageTitle').textContent = post.title + ' | Sri Amutha Dental Care';
+      document.getElementById('pageDesc').content = post.content.replace(/<[^>]+>/g, '').substring(0, 160);
+
+      document.getElementById('bpArticleImg').src = post.img;
+      document.getElementById('bpArticleImg').alt = post.title;
+      document.getElementById('bpTitle').textContent = post.title;
+      document.getElementById('bpDate').textContent = post.date;
+      document.getElementById('bpReadTime').textContent = post.readTime;
+      document.getElementById('bpCatBadge').innerHTML =
+        `<span class="bp-cat-badge ${post.category}">${post.categoryLabel}</span>`;
+
+      document.getElementById('bpContent').innerHTML = post.content;
+
+      const related = ALL_POSTS_LIST.filter(p => p.slug !== slug).slice(0, 3);
+      const relatedHTML = related.map(p => `
+        <a aria-label="Link" href="blog-post.html#post=${p.slug}" class="bp-related-card">
+          <img loading="lazy" src="${p.img}" alt="${p.title}" class="bp-related-img">
+          <div class="bp-related-body">
+            <h4>${p.title}</h4>
+            <p class="bp-related-meta">${p.date} · ${p.readTime} read</p>
+          </div>
+        </a>
+      `).join('');
+      document.getElementById('bpRelated').innerHTML = relatedHTML;
+    }
+
+    // Re-render when hash changes (clicking related posts)
+    window.addEventListener('hashchange', render);
+
+    // Initial render
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', render);
+    } else {
+      render();
+    }
+  })();
+  </script>
+
+  <!-- JavaScript -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script defer src="script.min.js"></script>
+
+  <!-- Flatpickr JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      flatpickr("input[type=date]", {
+        minDate: "today",
+        dateFormat: "Y-m-d"
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Insights | Sri Amutha Dental Care</title>
+  <meta name="description" content="Explore our blog for the latest dental news, tips, and articles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"></noscript></noscript>
+  <link rel="stylesheet" href="style.min.css?v=131">
+  <style>
+    /* ══════════════════════════════════
+       BLOG PAGE — FULL REDESIGN
+    ══════════════════════════════════ */
+
+    /* Hero */
+    .bl-hero {
+      width: 100%;
+      margin-top: 158px;
+      background: #f4ddc9;
+      padding: 80px 50px 70px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .bl-hero::before {
+      display: none;
+    }
+    .bl-hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .bl-hero-tag {
+      display: inline-block;
+      background: rgba(223,155,67,0.15);
+      color: var(--gold-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(223,155,67,0.3);
+    }
+    .bl-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(30px, 5vw, 52px);
+      font-weight: 700;
+      color: #0D4842;
+      line-height: 1.18;
+      margin-bottom: 16px;
+    }
+    .bl-hero-sub {
+      font-size: 16px;
+      color: #2b3a3c;
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── Category Filters ── */
+    .bl-filters-bar {
+      background: #fff;
+      border-bottom: 1px solid rgba(13,72,66,0.08);
+      padding: 0 50px;
+      position: sticky;
+      top: 80px;
+      z-index: 50;
+      box-shadow: 0 2px 16px rgba(2,23,26,0.06);
+    }
+    .bl-filters-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .bl-filters-inner::-webkit-scrollbar { display: none; }
+    .bl-filter-btn {
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 18px 22px;
+      font-family: var(--font-primary);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #556c6a;
+      letter-spacing: 0.02em;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .bl-filter-btn:hover { color: #0D4842; }
+    .bl-filter-btn.active {
+      color: #0D4842;
+      border-bottom-color: var(--gold-primary);
+    }
+
+    /* ── Main Layout ── */
+    .bl-main {
+      background: #f5f4f0;
+      padding: 70px 50px 100px;
+    }
+    .bl-main-inner { max-width: 1220px; margin: 0 auto; }
+
+    /* ── Featured Post ── */
+    .bl-featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(2,23,26,0.08);
+      margin-bottom: 60px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .bl-featured:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(2,23,26,0.12);
+    }
+    .bl-featured-img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+    .bl-featured-body {
+      padding: 52px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .bl-cat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+    .bl-cat-badge.preventive { background: rgba(13,72,66,0.1); color: #0D4842; }
+    .bl-cat-badge.restorative { background: rgba(223,155,67,0.12); color: #b8700a; }
+    .bl-cat-badge.cosmetic { background: rgba(147,51,234,0.1); color: #7c3aed; }
+    .bl-cat-badge.orthodontic { background: rgba(59,130,246,0.1); color: #1d4ed8; }
+    .bl-cat-badge.paediatric { background: rgba(239,68,68,0.1); color: #b91c1c; }
+
+    .bl-featured-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 700;
+      color: #021a1d;
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+    .bl-featured-excerpt {
+      font-size: 15.5px;
+      color: #556c6a;
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+    .bl-featured-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 13px;
+      color: #8a9e9c;
+      margin-bottom: 28px;
+    }
+    .bl-featured-meta span { display: flex; align-items: center; gap: 6px; }
+    .bl-read-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0D4842;
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-primary);
+      transition: background 0.2s, transform 0.2s;
+      width: fit-content;
+    }
+    .bl-read-btn:hover { background: #0a5c50; transform: translateX(3px); }
+    .bl-featured-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .bl-featured-label::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--gold-primary);
+      border-radius: 2px;
+    }
+
+    /* ── Section header ── */
+    .bl-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .bl-section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 700;
+      color: #021a1d;
+    }
+    .bl-section-count {
+      font-size: 13px;
+      color: #8a9e9c;
+      font-weight: 500;
+    }
+
+    /* ── Blog Cards Grid ── */
+    .bl-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+
+    .bl-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(2,23,26,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .bl-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(2,23,26,0.1);
+    }
+    .bl-card-img-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 210px;
+    }
+    .bl-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .bl-card:hover .bl-card-img { transform: scale(1.05); }
+    .bl-card-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(2,23,26,0.35) 0%, transparent 60%);
+    }
+    .bl-card-badge-wrap {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+    }
+    .bl-card-body {
+      padding: 26px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .bl-card-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #021a1d;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+    .bl-card-excerpt {
+      font-size: 14px;
+      color: #556c6a;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .bl-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid rgba(13,72,66,0.07);
+    }
+    .bl-card-meta {
+      font-size: 12px;
+      color: #8a9e9c;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .bl-card-meta span { display: flex; align-items: center; gap: 5px; }
+    .bl-card-link {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0D4842;
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .bl-card-link:hover { gap: 8px; }
+
+    /* ── Inline Article ── */
+    .bl-article-wrap {
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(2,23,26,0.07);
+      margin-bottom: 60px;
+    }
+    .bl-article-hero-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+    .bl-article-body-wrap { padding: 60px 70px 70px; }
+    .bl-article-header { margin-bottom: 42px; }
+    .bl-article-header .bl-cat-badge { margin-bottom: 16px; }
+    .bl-article-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 700;
+      color: #021a1d;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .bl-article-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      color: #8a9e9c;
+      flex-wrap: wrap;
+    }
+    .bl-article-meta span { display: flex; align-items: center; gap: 7px; }
+    .bl-article-meta-divider { width: 1px; height: 14px; background: #d0d8d6; }
+
+    /* Article body typography */
+    .bl-article-content { color: #3b4c4e; }
+    .bl-article-content > p:first-child {
+      font-size: 18px;
+      line-height: 1.85;
+      color: #2b3a3c;
+      margin-bottom: 28px;
+      font-weight: 400;
+    }
+    .bl-article-content p {
+      font-size: 16px;
+      line-height: 1.85;
+      color: #3b4c4e;
+      margin-bottom: 22px;
+    }
+    .bl-article-content h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 700;
+      color: #0D4842;
+      margin: 52px 0 16px;
+      padding-left: 20px;
+      border-left: 4px solid var(--gold-primary);
+      line-height: 1.25;
+    }
+    .bl-article-content h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: #021a1d;
+      margin: 36px 0 12px;
+    }
+    .bl-article-content ul {
+      margin: 0 0 24px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .bl-article-content ul li {
+      font-size: 15.5px;
+      color: #3b4c4e;
+      line-height: 1.75;
+      padding: 9px 0 9px 30px;
+      position: relative;
+      border-bottom: 1px solid rgba(13,72,66,0.06);
+    }
+    .bl-article-content ul li:last-child { border-bottom: none; }
+    .bl-article-content ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 18px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold-primary);
+    }
+    .bl-article-content blockquote {
+      border-left: 4px solid var(--gold-primary);
+      background: #f5f4f0;
+      padding: 24px 30px;
+      margin: 40px 0;
+      border-radius: 0 16px 16px 0;
+      font-style: italic;
+      font-size: 17.5px;
+      color: #0D4842;
+      line-height: 1.65;
+    }
+    .bl-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #0D4842, var(--gold-primary));
+      border-radius: 2px;
+      margin: 44px 0;
+    }
+    .bl-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 28px 0 36px;
+    }
+    .bl-info-card {
+      background: #f5f4f0;
+      border-radius: 16px;
+      padding: 26px;
+      border: 1.5px solid rgba(13,72,66,0.07);
+    }
+    .bl-info-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0D4842;
+      margin-bottom: 8px;
+    }
+    .bl-info-card p {
+      font-size: 14.5px !important;
+      color: #556c6a !important;
+      line-height: 1.6 !important;
+      margin: 0 !important;
+    }
+    .bl-services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 20px 0 32px;
+    }
+    .bl-service-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f5f4f0;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 14.5px;
+      font-weight: 500;
+      color: #021a1d;
+      border: 1px solid rgba(13,72,66,0.07);
+    }
+    .bl-service-item svg { color: var(--gold-primary); flex-shrink: 0; }
+
+    /* ── Article CTA ── */
+    .bl-cta {
+      background: linear-gradient(135deg, #0D4842 0%, #021a1d 100%);
+      border-radius: 24px;
+      padding: 60px 50px;
+      text-align: center;
+      margin-top: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bl-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(223,155,67,0.15), transparent 55%);
+      pointer-events: none;
+    }
+    .bl-cta-inner { position: relative; z-index: 1; }
+    .bl-cta h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(22px, 3vw, 32px);
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .bl-cta p { color: rgba(255,255,255,0.7); font-size: 15.5px; margin-bottom: 28px; }
+    .bl-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gradient-gold);
+      color: #fff;
+      padding: 15px 36px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-primary);
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 8px 24px rgba(223,155,67,0.3);
+    }
+    .bl-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(223,155,67,0.45); }
+
+    /* ── Newsletter ── */
+    .bl-newsletter {
+      background: #fff;
+      border-radius: 20px;
+      padding: 44px 48px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      box-shadow: 0 4px 24px rgba(2,23,26,0.06);
+      margin-top: 60px;
+      flex-wrap: wrap;
+    }
+    .bl-newsletter-text { flex: 1; min-width: 220px; }
+    .bl-newsletter-text h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      color: #021a1d;
+      margin-bottom: 6px;
+    }
+    .bl-newsletter-text p { font-size: 14.5px; color: #556c6a; margin: 0; }
+    .bl-newsletter-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .bl-newsletter-input {
+      padding: 13px 20px;
+      border: 1.5px solid rgba(13,72,66,0.15);
+      border-radius: 50px;
+      font-size: 14.5px;
+      font-family: var(--font-primary);
+      color: #021a1d;
+      background: #f5f4f0;
+      width: 240px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .bl-newsletter-input:focus { border-color: #0D4842; }
+    .bl-newsletter-btn {
+      padding: 13px 28px;
+      background: #0D4842;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font-primary);
+      transition: background 0.2s;
+    }
+    .bl-newsletter-btn:hover { background: #0a5c50; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .bl-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 991px) {
+      .bl-hero { margin-top: 68px; padding: 50px 24px 40px; }
+      .bl-filters-bar { padding: 0 20px; }
+      .bl-main { padding: 50px 24px 70px; }
+      .bl-featured { grid-template-columns: 1fr; }
+      .bl-featured-img { min-height: 280px; }
+      .bl-featured-body { padding: 36px 32px; }
+      .bl-article-body-wrap { padding: 40px 32px 50px; }
+      .bl-info-grid, .bl-services-grid { grid-template-columns: 1fr; }
+      .bl-cta { padding: 40px 24px; }
+      .bl-newsletter { padding: 32px 28px; gap: 24px; }
+    }
+    @media (max-width: 700px) {
+      .bl-grid { grid-template-columns: 1fr; }
+      .bl-article-hero-img { height: 240px; }
+      .bl-article-body-wrap { padding: 32px 22px 40px; }
+      .bl-article-content h2 { font-size: 19px; }
+    }
+    @media (max-width: 576px) {
+      .bl-hero { padding: 40px 18px 32px; }
+      .bl-featured-body { padding: 28px 22px; }
+    }
+  </style>
+
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"></noscript>
+  <link rel="canonical" href="https://sriamuthadental.com/blog.html">
+</head>
+<body>
+
+  <!-- Premium Header -->
+  <header class="main-header">
+
+    <!-- Top Section -->
+    <div class="header-top">
+      <div class="header-top-container">
+
+        <!-- Left Column: Timings & Location -->
+        <div class="header-top-left">
+          <div class="top-info-item">
+            <svg class="top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Thuraiyur, Trichy</span>
+          </div>
+          <div class="top-info-item">
+            <svg class="top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>9 AM - 9 PM</span>
+          </div>
+        </div>
+
+        <!-- Center Column: Logo -->
+        <a href="index.html" class="logo-container" aria-label="Sri Amutha Dental Care Home">
+          <img loading="lazy" src="logo_icon.webp?v=3" alt="Sri Amutha Dental Care" class="logo-img-icon" width="60" height="72">
+          <img loading="lazy" src="logo_name.webp?v=4" alt="Sri Amutha Dental Care Name" class="logo-img-name" width="170" height="72">
+        </a>
+
+        <!-- Right Column: Contact Phone & CTA -->
+        <div class="header-top-right">
+          <div class="top-info-item">
+            <svg class="top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <a aria-label="Link" href="tel:+919843543812">+91 98435 43812</a>
+          </div>
+          <a aria-label="Link" href="#" class="btn-book-top" data-modal="apptModal">Book Appointment</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Section: Nav -->
+    <div class="header-bottom">
+      <div class="header-bottom-container">
+
+        <!-- Logo shown ONLY on Mobile -->
+        <a href="index.html" class="logo-container mobile-logo-only" aria-label="Sri Amutha Dental Care Home">
+          <img loading="lazy" src="logo_icon.webp?v=3" alt="Sri Amutha Dental Care" class="logo-img-icon" width="34" height="40">
+          <img loading="lazy" src="logo_name.webp?v=4" alt="Sri Amutha Dental Care Name" class="logo-img-name" width="95" height="40">
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="nav-menu" id="navMenu">
+          <ul>
+            <li><a aria-label="Link" href="index.html" class="nav-link">Home</a></li>
+            <li><a aria-label="Link" href="about.html" class="nav-link">About Us</a></li>
+            <li><a aria-label="Link" href="treatments.html" class="nav-link">Treatments</a></li>
+            <li><a aria-label="Link" href="doctors.html" class="nav-link">Our Doctors</a></li>
+            <li><a aria-label="Link" href="index.html#testimonials" class="nav-link">Reviews</a></li>
+            <li><a aria-label="Link" href="academy.html" class="nav-link">Academy</a></li>
+            <li><a aria-label="Link" href="blog.html" class="nav-link active">Blog</a></li>
+            <li><a aria-label="Link" href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-nav-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+
+      </div>
+    </div>
+
+  </header>
+
+  <main>
+
+    <!-- ══ HERO ══ -->
+    <div class="bl-hero">
+      <div class="bl-hero-inner">
+        <h1 class="bl-hero-title">Dental Health<br>Insights & Articles</h1>
+        <p class="bl-hero-sub">Expert guidance on oral health, preventive care, and modern dentistry — written by our clinical team for your well-being.</p>
+      </div>
+    </div>
+
+    <!-- ══ CATEGORY FILTERS ══ -->
+    <div class="bl-filters-bar">
+      <div class="bl-filters-inner">
+        <button class="bl-filter-btn active" data-filter="all" id="filter-all">All Articles</button>
+        <button class="bl-filter-btn" data-filter="preventive" id="filter-preventive">Preventive Care</button>
+        <button class="bl-filter-btn" data-filter="restorative" id="filter-restorative">Restorative</button>
+        <button class="bl-filter-btn" data-filter="cosmetic" id="filter-cosmetic">Cosmetic</button>
+        <button class="bl-filter-btn" data-filter="orthodontic" id="filter-orthodontic">Orthodontic</button>
+        <button class="bl-filter-btn" data-filter="paediatric" id="filter-paediatric">Paediatric</button>
+      </div>
+    </div>
+
+    <!-- ══ MAIN CONTENT ══ -->
+    <section class="bl-main">
+      <div class="bl-main-inner">
+
+        <!-- ── FEATURED POST ── -->
+        <div class="bl-featured bl-item" data-category="preventive">
+          <img height="838" width="1250" src="assets/images/preventive_care_guide.webp" alt="Preventive Dental Care" class="bl-featured-img" loading="lazy">
+          <div class="bl-featured-body">
+            <span class="bl-featured-label">Featured Article</span>
+            <span class="bl-cat-badge preventive">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="11" height="11"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Preventive Care
+            </span>
+            <h2 class="bl-featured-title">The Importance of Preventive Dental Care: A Guide to Lifelong Oral Health</h2>
+            <p class="bl-featured-excerpt">Preventive dentistry focuses on identifying and addressing potential dental concerns before they progress into complex conditions — helping you preserve your natural teeth and minimize extensive treatment.</p>
+            <div class="bl-featured-meta">
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                July 2025
+              </span>
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                12 min read
+              </span>
+            </div>
+            <a aria-label="Link" href="blog-post.html#post=preventive-care" class="bl-read-btn">
+              Read Full Article
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- ── BLOG CARDS GRID ── -->
+        <div class="bl-section-header">
+          <h2 class="bl-section-title">More Articles</h2>
+          <span class="bl-section-count" id="articleCount">Showing 6 articles</span>
+        </div>
+
+        <div class="bl-grid" id="blogsGrid">
+
+          <!-- Card 1 — Restorative -->
+          <article class="bl-card bl-item" data-category="restorative">
+            <div class="bl-card-img-wrap">
+              <img height="528" width="1000" src="assets/images/root_canal_myths.webp" alt="Root Canal Treatment" class="bl-card-img" loading="lazy">
+              <div class="bl-card-img-overlay"></div>
+            </div>
+            <div class="bl-card-body">
+              <h3 class="bl-card-title">Root Canal Treatment: Separating Myths from Facts</h3>
+              <p class="bl-card-excerpt">Root canal therapy is one of the most misunderstood dental procedures. Modern techniques make it comfortable and efficient — often no more invasive than a routine filling. Learn what to expect.</p>
+              <div class="bl-card-footer">
+                <div class="bl-card-meta">
+                  <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    6 min read
+                  </span>
+                  <span>Restorative</span>
+                </div>
+                <a aria-label="Link" href="blog-post.html#post=root-canal" class="bl-card-link">
+                  Read
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="13" height="13"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 — Cosmetic -->
+          <article class="bl-card bl-item" data-category="cosmetic">
+            <div class="bl-card-img-wrap">
+              <img height="383" width="522" src="assets/images/smile_designing_aesthetic.webp" alt="Smile Designing" class="bl-card-img" loading="lazy">
+              <div class="bl-card-img-overlay"></div>
+            </div>
+            <div class="bl-card-body">
+              <h3 class="bl-card-title">Smile Designing: Crafting Your Perfect Aesthetic Smile</h3>
+              <p class="bl-card-excerpt">Smile designing blends art with science — using veneers, whitening, contouring and bonding to create a smile uniquely suited to your face shape, skin tone and personality.</p>
+              <div class="bl-card-footer">
+                <div class="bl-card-meta">
+                  <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    7 min read
+                  </span>
+                  <span>Cosmetic</span>
+                </div>
+                <a aria-label="Link" href="blog-post.html#post=smile-design" class="bl-card-link">
+                  Read
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="13" height="13"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 — Orthodontic -->
+          <article class="bl-card bl-item" data-category="orthodontic">
+            <div class="bl-card-img-wrap">
+              <img height="400" width="600" src="assets/images/clear_aligners_vs_braces.webp" alt="Clear Aligners" class="bl-card-img" loading="lazy">
+              <div class="bl-card-img-overlay"></div>
+            </div>
+            <div class="bl-card-body">
+              <h3 class="bl-card-title">Clear Aligners vs. Traditional Braces: Which Is Right for You?</h3>
+              <p class="bl-card-excerpt">Both clear aligners and braces are effective orthodontic options — but the right choice depends on your lifestyle, correction needs, and commitment level. Here's a practical comparison.</p>
+              <div class="bl-card-footer">
+                <div class="bl-card-meta">
+                  <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    8 min read
+                  </span>
+                  <span>Orthodontic</span>
+                </div>
+                <a aria-label="Link" href="blog-post.html#post=clear-aligners" class="bl-card-link">
+                  Read
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="13" height="13"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 — Paediatric -->
+          <article class="bl-card bl-item" data-category="paediatric">
+            <div class="bl-card-img-wrap">
+              <img height="459" width="600" src="assets/images/children_oral_health.webp" alt="Kids Dentistry" class="bl-card-img" loading="lazy">
+              <div class="bl-card-img-overlay"></div>
+            </div>
+            <div class="bl-card-body">
+              <h3 class="bl-card-title">Building Healthy Habits: A Parent's Guide to Children's Oral Health</h3>
+              <p class="bl-card-excerpt">Early dental visits and consistent home care set the foundation for a lifetime of healthy smiles. Discover age-appropriate oral hygiene tips and when to schedule your child's first dental appointment.</p>
+              <div class="bl-card-footer">
+                <div class="bl-card-meta">
+                  <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    5 min read
+                  </span>
+                  <span>Paediatric</span>
+                </div>
+                <a aria-label="Link" href="blog-post.html#post=kids-dentistry" class="bl-card-link">
+                  Read
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="13" height="13"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 — Restorative -->
+          <article class="bl-card bl-item" data-category="restorative">
+            <div class="bl-card-img-wrap">
+              <img height="560" width="750" src="assets/images/dental_implants_solution.webp" alt="Dental Implants" class="bl-card-img" loading="lazy">
+              <div class="bl-card-img-overlay"></div>
+            </div>
+            <div class="bl-card-body">
+              <h3 class="bl-card-title">Dental Implants: The Long-Term Solution for Missing Teeth</h3>
+              <p class="bl-card-excerpt">Dental implants are the gold standard for replacing missing teeth — providing permanent, natural-looking results that function just like your own teeth without impacting adjacent teeth.</p>
+              <div class="bl-card-footer">
+                <div class="bl-card-meta">
+                  <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    9 min read
+                  </span>
+                  <span>Restorative</span>
+                </div>
+                <a aria-label="Link" href="blog-post.html#post=dental-implants" class="bl-card-link">
+                  Read
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="13" height="13"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 — Preventive -->
+          <article class="bl-card bl-item" data-category="preventive">
+            <div class="bl-card-img-wrap">
+              <img height="565" width="847" src="assets/images/gum_disease_signs.webp" alt="Gum Disease" class="bl-card-img" loading="lazy">
+              <div class="bl-card-img-overlay"></div>
+            </div>
+            <div class="bl-card-body">
+              <h3 class="bl-card-title">Understanding Gum Disease: Early Signs and Prevention</h3>
+              <p class="bl-card-excerpt">Periodontal disease is one of the leading causes of tooth loss in adults — yet it is largely preventable. Learn to recognize the warning signs and how regular care can protect your gums.</p>
+              <div class="bl-card-footer">
+                <div class="bl-card-meta">
+                  <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    6 min read
+                  </span>
+                  <span>Preventive</span>
+                </div>
+                <a aria-label="Link" href="blog-post.html#post=gum-disease" class="bl-card-link">
+                  Read
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="13" height="13"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /bl-grid -->
+
+        <!-- Newsletter Strip Removed -->
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-container">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img loading="lazy" src="logo_icon.webp?v=3" alt="Sri Amutha Dental Care" class="footer-logo-img-icon" width="34" height="40">
+          <img loading="lazy" src="logo_name.webp?v=4" alt="Sri Amutha Dental Care Name" class="footer-logo-img-name" width="95" height="40">
+        </div>
+        <p class="footer-brand-desc">Experience world-class dental care with a gentle touch. Your healthy smile is our greatest reward.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/share/18m7gcki8u/?mibextid=wwXIfr" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/sri_amutha_dental_care?igsh=a2M4YmFkaDNvb2Y0&utm_source=qr" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://wa.me/919600043812?text=Message%20Sri%20Amutha%20Dental%20Care%20on%20WhatsApp." target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a aria-label="Link" href="about.html">About Us</a></li>
+          <li><a aria-label="Link" href="index.html#our-services">Our Services</a></li>
+          <li><a aria-label="Link" href="doctors.html">Our Doctors</a></li>
+          <li><a aria-label="Link" href="index.html#our-process">Our Process</a></li>
+          <li><a aria-label="Link" href="index.html#testimonials">Testimonials</a></li>
+          <li><a aria-label="Link" href="academy.html">Academy</a></li>
+          <li><a aria-label="Link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col footer-services-col">
+        <h3 class="footer-col-title">Our Services</h3>
+        <ul class="footer-links-grid">
+                    <li><a aria-label="Link" href="treatment-detail.html?service=cleaning">General dentistry</a></li>
+          <li><a aria-label="Link" href="treatment-detail.html?service=root-canal">Root Canal Treatment</a></li>
+          <li><a aria-label="Link" href="treatment-detail.html?service=smile-design">Smile designing</a></li>
+          <li><a aria-label="Link" href="treatment-detail.html?service=whitening">Teeth whitening</a></li>
+          <li><a aria-label="Link" href="treatment-detail.html?service=gum">Gum care</a></li>
+          <li><a aria-label="Link" href="treatment-detail.html?service=kids">Kids dentistry</a></li>
+          <li><a aria-label="Link" href="treatments.html">More &rarr;</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">Contact Us</h3>
+        <ul class="footer-contact-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            23A, Salai Mariyamman Kovil Street,<br>Trichy Main Road, Thuraiyur - 621010
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6.29 6.29l.95-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +91 98435 43812
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            info@sriamuthadental.com
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>© 2026 Sri Amutha Dental Care. All rights reserved.</p>
+      <p class="footer-dev-credit">Website Developed by Malaveeka Sridhar</p>
+      <div class="footer-bottom-links">
+        <a aria-label="Link" href="#">Privacy Policy</a>
+        <a aria-label="Link" href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Appointment booking Modal -->
+  <div class="appt-modal-overlay" id="apptModal" role="dialog" aria-modal="true" aria-labelledby="apptModalTitle">
+    <div class="appt-modal-box">
+      <button class="appt-modal-close" id="apptModalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="appt-modal-header">
+        <div class="appt-modal-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </div>
+        <h2 class="appt-modal-title" id="apptModalTitle">Book an Appointment</h2>
+        <p class="appt-modal-subtitle">Fill in your details and we'll confirm your slot shortly.</p>
+      </div>
+      <form class="appt-modal-form" id="apptModalForm" novalidate>
+        <div class="appt-modal-field full-width">
+          <label for="modal-service">Select Service <span class="req">*</span></label>
+          <select id="modal-service" required>
+            <option value="" disabled selected>— Select Treatment —</option>
+            <option value="cleaning">General dentistry</option>
+            <option value="root-canal">Root Canal Treatment</option>
+            <option value="smile-design">Smile designing</option>
+            <option value="whitening">Teeth whitening</option>
+            <option value="gum">Gum care</option>
+            <option value="kids">Kids dentistry</option>
+            <option value="surgery">Dental surgeries</option>
+            <option value="invisalign">Aligners</option>
+            <option value="braces">All types of braces</option>
+            <option value="laser">Crown and bridges</option>
+            <option value="dentures">Dentures</option>
+            <option value="preventive">Preventive dentistry</option>
+            <option value="wisdom">Wisdom tooth care</option>
+            <option value="implants">Dental implants</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="appt-modal-row">
+          <div class="appt-modal-field">
+            <label for="modal-name">Full Name <span class="req">*</span></label>
+            <input type="text" id="modal-name" placeholder="Your full name" required>
+          </div>
+          <div class="appt-modal-field">
+            <label for="modal-phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="modal-phone" placeholder="+91 98XXX XXXXX" required>
+          </div>
+        </div>
+        <div class="appt-modal-row">
+          <div class="appt-modal-field">
+            <label for="modal-date">Preferred Date <span class="req">*</span></label>
+            <input type="date" id="modal-date" required>
+          </div>
+          <div class="appt-modal-field">
+            <label for="modal-time">Preferred Time</label>
+            <select id="modal-time">
+              <option value="" disabled selected>— Select Time —</option>
+              <option value="10:00">10:00 AM</option><option value="11:00">11:00 AM</option>
+              <option value="12:00">12:00 PM</option><option value="14:00">2:00 PM</option>
+              <option value="15:00">3:00 PM</option><option value="16:00">4:00 PM</option>
+              <option value="17:00">5:00 PM</option><option value="18:00">6:00 PM</option>
+              <option value="19:00">7:00 PM</option><option value="20:00">8:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="appt-modal-field full-width">
+          <label for="modal-message">Any Message (optional)</label>
+          <textarea id="modal-message" rows="3" placeholder="Describe your concern or mention anything important..."></textarea>
+        </div>
+        <button type="submit" class="appt-modal-submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Confirm Appointment
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/919600043812?text=Message%20Sri%20Amutha%20Dental%20Care%20on%20WhatsApp." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Message Sri Amutha Dental Care on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.62.962 3.206 1.488 4.887 1.489 5.485 0 9.948-4.467 9.95-9.95.002-2.656-1.03-5.153-2.906-7.03C16.702 1.787 14.207.755 11.556.755c-5.495 0-9.958 4.468-9.96 9.953-.001 1.758.498 3.42 1.442 4.965l-.996 3.637 3.725-.976h.286zm12.333-6.202c-.328-.164-1.94-.957-2.24-1.066-.3-.11-.518-.164-.737.164-.22.328-.847 1.067-1.038 1.285-.19.219-.383.246-.71.082-.328-.164-1.385-.51-2.637-1.628-.975-.87-1.633-1.944-1.825-2.272-.19-.329-.02-.507.144-.67.148-.147.328-.383.493-.574.164-.192.22-.328.328-.547.11-.219.055-.41-.027-.574-.082-.164-.737-1.775-1.01-2.43-.266-.64-.537-.552-.737-.563-.19-.009-.41-.01-.628-.01-.22 0-.574.082-.875.41-.3.328-1.147 1.12-1.147 2.73 0 1.611 1.175 3.167 1.338 3.385.164.218 2.311 3.528 5.597 4.945.782.337 1.392.538 1.868.69.786.25 1.5.214 2.064.13.629-.093 1.939-.793 2.213-1.558.273-.765.273-1.42.191-1.558-.082-.137-.3-.218-.628-.382z"/></svg>
+  </a>
+
+  <!-- Category Filter Script -->
+  <script>
+    (function() {
+      const filterBtns = document.querySelectorAll('.bl-filter-btn');
+      const items = document.querySelectorAll('.bl-item');
+      const countEl = document.getElementById('articleCount');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          const filter = this.dataset.filter;
+          let visible = 0;
+          items.forEach(item => {
+            const cat = item.dataset.category;
+            const show = filter === 'all' || cat === filter;
+            item.style.display = show ? '' : 'none';
+            if (show) visible++;
+          });
+          countEl.textContent = 'Showing ' + visible + ' article' + (visible !== 1 ? 's' : '');
+        });
+      });
+    })();
+  </script>
+
+  <!-- JavaScript -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script defer src="script.min.js"></script>
+
+  <!-- Flatpickr JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      flatpickr("input[type=date]", {
+        minDate: "today",
+        dateFormat: "Y-m-d"
+      });
+    });
+  </script>
+</body>
+</html>
