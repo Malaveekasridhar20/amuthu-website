@@ -382,3 +382,11 @@ function sendAppointmentEmail(details) {
 }
 
 
+
+// Flatpickr accessibility fix
+setTimeout(() => {
+  document.querySelectorAll('.flatpickr-mobile, .flatpickr-input').forEach(el => {
+    el.removeAttribute('tabindex');
+    el.setAttribute('aria-label', 'Select Date');
+  });
+}, 1500);
