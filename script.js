@@ -10,16 +10,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-link');
 
   // 1. Sticky Header scroll effect
+  let ticking = false;
   const handleScroll = () => {
     if (window.scrollY > 20) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
+    ticking = false;
   };
 
-  window.addEventListener('scroll', handleScroll);
-  handleScroll();
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(handleScroll);
+      ticking = true;
+    }
+  });
+  
+  window.requestAnimationFrame(handleScroll);
 
   // 2. Mobile Nav Drawer Toggle
   menuToggle.addEventListener('click', (e) => {
