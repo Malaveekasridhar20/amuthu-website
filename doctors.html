@@ -1,0 +1,766 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Doctors | Sri Amutha Dental Care</title>
+  <meta name="description" content="Meet our team of experienced and dedicated dental professionals at Sri Amutha Dental Care.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.min.css?v=131">
+  <style>
+    /* ── Doctors Page Specific Styles ── */
+    .doctors-hero {
+      width: 100%;
+      min-height: 460px;
+      background: #f4ddc9;
+      padding: 180px 50px 80px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .doctors-hero-overlay {
+      display: none;
+    }
+    .doctors-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .doctors-hero-tag {
+      display: inline-block;
+      color: var(--gold-dark);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .doctors-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(34px, 5vw, 56px);
+      font-weight: 700;
+      color: #0D4842;
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+    .doctors-hero-title span {
+      color: var(--gold-dark);
+    }
+    .doctors-hero-sub {
+      font-size: 17.5px;
+      color: #2b3a3c;
+      max-width: 600px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .doctors-badges-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .doctors-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(13, 72, 66, 0.07);
+      border: 1px solid rgba(13, 72, 66, 0.2);
+      color: #0D4842;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+    }
+    .doctors-badge:hover {
+      background-color: rgba(223, 155, 67, 0.15);
+      border-color: var(--gold-primary);
+      color: var(--gold-dark);
+      transform: translateY(-2px);
+    }
+    .doctors-badge svg {
+      color: #0D4842;
+      flex-shrink: 0;
+    }
+
+    /* Main Doctors Profiles Section */
+    .doctors-main {
+      background: #f5f4f0;
+      padding: 100px 50px;
+    }
+    .doctors-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+    }
+    .doctor-item {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .doctor-item.reverse {
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+    .doctor-image-wrapper {
+      position: relative;
+      border-radius: 28px;
+      padding: 16px;
+      background: #ffffff;
+      box-shadow: 0 15px 45px rgba(2, 23, 26, 0.08);
+      border: 1.5px solid rgba(13, 72, 66, 0.06);
+      transition: transform 0.4s ease;
+    }
+    .doctor-image-wrapper:hover {
+      transform: translateY(-5px);
+    }
+    .doctor-image-container {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      background-color: #EDE9E1;
+    }
+    .doctor-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .doctor-image-wrapper:hover .doctor-img {
+      transform: scale(1.03);
+    }
+    .doctor-credentials-badge {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      background: var(--gradient-gold);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 20px rgba(184, 123, 46, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .doctor-content {
+      display: flex;
+      flex-direction: column;
+    }
+    .doctor-role {
+      color: var(--gold-dark);
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .doctor-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 42px);
+      color: #021a1d;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .doctor-qualifications {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16.5px;
+      color: #556c6a;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border-bottom: 2px solid rgba(13, 72, 66, 0.08);
+      padding-bottom: 16px;
+    }
+    .doctor-bio {
+      font-size: 16px;
+      color: #4a5e5c;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    .doctor-details-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 36px 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .doctor-details-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: #2b3a38;
+      line-height: 1.5;
+    }
+    .doctor-details-list li svg {
+      color: #0D4842;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .doctor-details-list strong {
+      color: #0D4842;
+      font-weight: 600;
+    }
+    .btn-doctor-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background-color: #0D4842;
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 14.5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      width: fit-content;
+      box-shadow: 0 6px 18px rgba(13, 72, 66, 0.1);
+    }
+    .btn-doctor-cta:hover {
+      background-color: var(--gold-dark);
+      box-shadow: 0 10px 24px rgba(223, 155, 67, 0.25);
+      transform: translateY(-2px);
+    }
+    .btn-doctor-cta svg {
+      transition: transform 0.3s ease;
+    }
+    .btn-doctor-cta:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* Philosophy / Highlights Section */
+    .doctors-values-section {
+      background-color: #EDE9E1;
+      padding: 90px 50px;
+      text-align: center;
+    }
+    .values-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .values-header {
+      margin-bottom: 60px;
+    }
+    .values-tag {
+      color: var(--gold-dark);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 14px;
+    }
+    .values-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      color: #021a1d;
+      line-height: 1.2;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .value-card {
+      background-color: #ffffff;
+      padding: 40px 30px;
+      border-radius: 24px;
+      border: 1.5px solid rgba(13, 72, 66, 0.06);
+      box-shadow: 0 8px 24px rgba(2, 23, 26, 0.02);
+      text-align: left;
+      transition: var(--transition-smooth);
+    }
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 36px rgba(2, 23, 26, 0.07);
+      border-color: rgba(223, 155, 67, 0.3);
+    }
+    .value-icon-wrap {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background-color: rgba(13, 72, 66, 0.05);
+      color: #0D4842;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      transition: var(--transition-smooth);
+    }
+    .value-card:hover .value-icon-wrap {
+      background-color: #0D4842;
+      color: #ffffff;
+    }
+    .value-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #021a1d;
+      margin-bottom: 12px;
+      font-family: var(--font-primary);
+    }
+    .value-card p {
+      font-size: 14.5px;
+      color: #556c6a;
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+      .doctors-hero {
+        padding: 140px 30px 60px;
+        min-height: auto;
+      }
+      .doctors-main {
+        padding: 70px 24px;
+      }
+      .doctors-container {
+        gap: 80px;
+      }
+      .doctor-item {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .doctor-item.reverse {
+        grid-template-columns: 1fr;
+      }
+      .doctor-item:nth-child(even) .doctor-image-wrapper {
+        order: -1;
+      }
+      .doctor-image-wrapper {
+        max-width: 450px;
+        margin: 0 auto;
+      }
+      .doctor-details-list {
+        margin-bottom: 28px;
+      }
+      .doctors-values-section {
+        padding: 70px 24px;
+      }
+      .values-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+  </style>
+
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="canonical" href="https://sriamuthadental.com/doctors.html">
+</head>
+<body>
+
+  <!-- HEADER -->
+    <!-- Premium Header -->
+  <header class="main-header">
+    
+    <!-- Top Section -->
+    <div class="header-top">
+      <div class="header-top-container">
+        
+        <!-- Left Column: Timings & Location -->
+        <div class="header-top-left">
+          <div class="top-info-item">
+            <svg class="top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Thuraiyur, Trichy</span>
+          </div>
+          <div class="top-info-item">
+            <svg class="top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>9 AM - 9 PM</span>
+          </div>
+        </div>
+
+        <!-- Center Column: Logo -->
+        <a href="index.html" class="logo-container" aria-label="Sri Amutha Dental Care Home">
+          <img loading="lazy" src="logo_icon.webp?v=3" alt="Sri Amutha Dental Care" class="logo-img-icon" width="60" height="72">
+          <img loading="lazy" src="logo_name.webp?v=4" alt="Sri Amutha Dental Care Name" class="logo-img-name" width="170" height="72">
+        </a>
+
+        <!-- Right Column: Contact Phone & CTA -->
+        <div class="header-top-right">
+          <div class="top-info-item">
+            <svg class="top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <a href="tel:+919843543812">+91 98435 43812</a>
+          </div>
+          <a href="#" class="btn-book-top" data-modal="apptModal">Book Appointment</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="header-bottom">
+      <div class="header-bottom-container">
+        
+        <!-- Logo shown ONLY on Mobile -->
+        <a href="index.html" class="logo-container mobile-logo-only" aria-label="Sri Amutha Dental Care Home">
+          <img loading="lazy" src="logo_icon.webp?v=3" alt="Sri Amutha Dental Care" class="logo-img-icon" width="34" height="40">
+          <img loading="lazy" src="logo_name.webp?v=4" alt="Sri Amutha Dental Care Name" class="logo-img-name" width="95" height="40">
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="nav-menu" id="navMenu">
+          <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+            <li><a href="doctors.html" class="nav-link active">Our Doctors</a></li>
+            <li><a href="index.html#testimonials" class="nav-link">Reviews</a></li>
+            <li><a href="academy.html" class="nav-link">Academy</a></li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-nav-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+
+      </div>
+    </div>
+
+  </header>
+
+  <main class="page-content">
+
+    <!-- Doctors Hero Section -->
+    <section class="doctors-hero">
+      <div class="doctors-hero-overlay"></div>
+      <div class="doctors-hero-content">
+        <h1 class="doctors-hero-title">Meet Our <span>Expert</span></h1>
+        <p class="doctors-hero-sub">Get to know the highly qualified dental specialists committed to delivering precision diagnostics, ultimate clinical care, and beautiful smiles.</p>
+        
+        <div class="doctors-badges-row">
+          <div class="doctors-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>ISO Standards Sterility</span>
+          </div>
+          <div class="doctors-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>50+ Years Legacy</span>
+          </div>
+          <div class="doctors-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Precision Diagnostics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Doctors Profiles Section -->
+    <section class="doctors-main">
+      <div class="doctors-container">
+
+        <!-- Doctor 1: Dr. P. Raja Rajeswari Balaji -->
+        <div class="doctor-item" id="dr-rajeswari">
+          <div class="doctor-image-wrapper">
+            <div class="doctor-image-container">
+              <img loading="lazy" src="assets/images/doctor_raja_rajeswari.webp" alt="Dr. P. Raja Rajeswari Balaji - Endodontist at Sri Amutha Dental Care" class="doctor-img">
+            </div>
+            <div class="doctor-credentials-badge">M.D.S. (Endo)</div>
+          </div>
+          <div class="doctor-content">
+            <span class="doctor-role">proprietor and chief dental surgeon</span>
+            <h2 class="doctor-name">Dr. P. Raja Rajeswari Balaji</h2>
+            <div class="doctor-qualifications">Master of Dental Surgery (M.D.S.) in Conservative Dentistry & Endodontics</div>
+            <p class="doctor-bio">
+              Dr. Raja Rajeswari Balaji is our chief clinician, specializing in advanced Micro-Surgical Root Canal treatments, Re-treatments, and premium Smile Designing solutions. Known for her patient-first philosophy and gentle demeanor, she incorporates state-of-the-art digital tools and high-magnification dental loupes into her daily practice. She is committed to saving patients' natural teeth and dispelling any anxiety surrounding root canal treatments by making procedures virtually painless.
+            </p>
+            <ul class="doctor-details-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Specialty Focus</strong>: Microsurgical Rootcanal treatment, smile designing, preventive and restorative dentistry.</span>
+              </li>
+
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Patient Promise</strong>: "Every procedure is a blend of precision and absolute comfort. Saving your teeth is our ultimate success."</span>
+              </li>
+            </ul>
+            <div style="display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap;">
+              <a href="#" class="btn-doctor-cta" data-modal="apptModal">
+                Book Appointment
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a href="doctor-raja-rajeswari.html" class="btn-doctor-cta" style="background-color: transparent; border: 1.5px solid #0D4842; color: #0D4842; box-shadow: none;">
+                Click More
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Doctor 2: Dr. R. Balaji Rajendren -->
+        <div class="doctor-item reverse" id="dr-balaji">
+          <div class="doctor-content">
+            <span class="doctor-role">clinic director and dental hygienist</span>
+            <h2 class="doctor-name">Mr. R. Balaji Rajendren</h2>
+            <div class="doctor-qualifications">Dental Hygienist (D.H), Dental Mechanic (D.M)</div>
+            <p class="doctor-bio">
+              Mr. Balaji Rajendren leads clinical management wing and oral hygiene procedures at Sri Amutha Dental Care. Believing that dental wellness begins with consistent hygiene and patient education, he specializes in Oral Prophylaxis, Periodontal (Gum) Disease Prevention and Maintenance and Oral Health Education &amp; Patient Counseling. Under his leadership, the clinic has maintained a perfect record of ISO-standard sterilization, advanced workflow implementations, and a patient satisfaction score of 5.0 stars.
+            </p>
+            <ul class="doctor-details-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Specialty Focus</strong>: Periodontal scaling, preventative sealants, pediatric dental hygiene, dental mechanics, and prosthesis designs.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Sterility Officer</strong>: Oversees multi-stage autoclave sterilization protocols to ensure 100% infection-free safety for all patients.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Patient Promise</strong>: "Preventative care is the foundation of lifetime dental health. We empower you to take charge of your smile."</span>
+              </li>
+            </ul>
+            <div style="display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap;">
+              <a href="#" class="btn-doctor-cta" data-modal="apptModal">
+                Book Appointment
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a href="doctor-balaji-rajendren.html" class="btn-doctor-cta" style="background-color: transparent; border: 1.5px solid #0D4842; color: #0D4842; box-shadow: none;">
+                Click More
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="doctor-image-wrapper">
+            <div class="doctor-image-container">
+              <img loading="lazy" src="assets/images/doctor_balaji_rajendren.webp" alt="Dr. R. Balaji Rajendren - Consultant Hygienist at Sri Amutha Dental Care" class="doctor-img">
+            </div>
+            <div class="doctor-credentials-badge">B.Sc., D.H., D.M.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Core Philosophy Section -->
+    <section class="doctors-values-section">
+      <div class="values-container">
+        <div class="values-header">
+          <span class="values-tag">CLINICAL VALUES —</span>
+          <h2 class="values-title">Why Our Patients Trust Us</h2>
+        </div>
+        <div class="values-grid">
+          
+          <!-- Card 1 -->
+          <div class="value-card">
+            <div class="value-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <h3>Microscopic Precision</h3>
+            <p>Every diagnosis and procedure is assisted by high-magnification dental loupes. This ensures micro-fractures, canal anatomy, and margins are identified with absolute surgical precision.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="value-card">
+            <div class="value-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Empathetic Comfort</h3>
+            <p>We care deeply about your clinical experience. From painless local anesthesia techniques to active listening, our doctors design treatments around your physical and emotional comfort.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="value-card">
+            <div class="value-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><polygon points="12 2 2 7 12 12 22 7 12 2"/></svg>
+            </div>
+            <h3>Ultra-Sterility Standard</h3>
+            <p>Your safety is non-negotiable. We follow strict sterilization standards, multi-stage ultrasonic cleanings, and autoclave cycles to maintain a perfectly sterile surgical field.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+    <!-- Footer -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-container">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img loading="lazy" src="logo_icon.webp?v=3" alt="Sri Amutha Dental Care" class="footer-logo-img-icon" width="34" height="40">
+          <img loading="lazy" src="logo_name.webp?v=4" alt="Sri Amutha Dental Care Name" class="footer-logo-img-name" width="95" height="40">
+        </div>
+        <p class="footer-brand-desc">Experience world-class dental care with a gentle touch. Your healthy smile is our greatest reward.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/share/18m7gcki8u/?mibextid=wwXIfr" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/sri_amutha_dental_care?igsh=a2M4YmFkaDNvb2Y0&utm_source=qr" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://wa.me/919600043812?text=Message%20Sri%20Amutha%20Dental%20Care%20on%20WhatsApp." target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="index.html#our-services">Our Services</a></li>
+          <li><a href="doctors.html">Our Doctors</a></li>
+          <li><a href="index.html#our-process">Our Process</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
+          <li><a href="academy.html">Academy</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col footer-services-col">
+        <h4 class="footer-col-title">Our Services</h4>
+        <ul class="footer-links-grid">
+                    <li><a href="treatment-detail.html?service=cleaning">General dentistry</a></li>
+          <li><a href="treatment-detail.html?service=root-canal">Root Canal Treatment</a></li>
+          <li><a href="treatment-detail.html?service=smile-design">Smile designing</a></li>
+          <li><a href="treatment-detail.html?service=whitening">Teeth whitening</a></li>
+          <li><a href="treatment-detail.html?service=gum">Gum care</a></li>
+          <li><a href="treatment-detail.html?service=kids">Kids dentistry</a></li>
+          <li><a href="treatments.html">More &rarr;</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Contact Us</h4>
+        <ul class="footer-contact-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            23A, Salai Mariyamman Kovil Street,<br>Trichy Main Road, Thuraiyur - 621010
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6.29 6.29l.95-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +91 98435 43812
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            info@sriamuthadental.com
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>© 2026 Sri Amutha Dental Care. All rights reserved.</p>
+      <p class="footer-dev-credit">Website Developed by Malaveeka Sridhar</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- APPOINTMENT MODAL -->
+  <div class="appt-modal-overlay" id="apptModal" role="dialog" aria-modal="true" aria-labelledby="apptModalTitle">
+    <div class="appt-modal-box">
+      <button class="appt-modal-close" id="apptModalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="appt-modal-header">
+        <div class="appt-modal-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h2 class="appt-modal-title" id="apptModalTitle">Book an Appointment</h2>
+        <p class="appt-modal-subtitle">Fill in your details and we'll confirm your slot shortly.</p>
+      </div>
+      <form class="appt-modal-form" id="apptModalForm" novalidate>
+        <div class="appt-modal-field full-width"><label for="modal-service">Select Service <span class="req">*</span></label>
+          <select id="modal-service" required>
+            <option value="" disabled selected>— Select Treatment —</option>
+            <option value="cleaning">General dentistry</option>
+            <option value="root-canal">Root Canal Treatment</option>
+            <option value="smile-design">Smile designing</option>
+            <option value="whitening">Teeth whitening</option>
+            <option value="gum">Gum care</option>
+            <option value="kids">Kids dentistry</option>
+            <option value="surgery">Dental surgeries</option>
+            <option value="invisalign">Aligners</option>
+            <option value="braces">All types of braces</option>
+            <option value="laser">Crown and bridges</option>
+            <option value="dentures">Dentures</option>
+            <option value="preventive">Preventive dentistry</option>
+            <option value="wisdom">Wisdom tooth care</option>
+            <option value="implants">Dental implants</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="appt-modal-row">
+          <div class="appt-modal-field"><label for="modal-name">Full Name <span class="req">*</span></label><input type="text" id="modal-name" placeholder="Your full name" required></div>
+          <div class="appt-modal-field"><label for="modal-phone">Phone Number <span class="req">*</span></label><input type="tel" id="modal-phone" placeholder="+91 98XXX XXXXX" required></div>
+        </div>
+        <div class="appt-modal-row">
+          <div class="appt-modal-field"><label for="modal-date">Preferred Date <span class="req">*</span></label><input type="date" id="modal-date" required></div>
+          <div class="appt-modal-field"><label for="modal-time">Preferred Time</label>
+            <select id="modal-time">
+              <option value="" disabled selected>— Select Time —</option>
+              <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
+              <option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option>
+              <option>5:00 PM</option><option>6:00 PM</option><option>7:00 PM</option><option>8:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="appt-modal-field full-width"><label for="modal-message">Any Message (optional)</label><textarea id="modal-message" rows="3" placeholder="Describe your concern…"></textarea></div>
+        <button type="submit" class="appt-modal-submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>
+          Confirm Appointment
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <a href="https://wa.me/919600043812?text=Message%20Sri%20Amutha%20Dental%20Care%20on%20WhatsApp." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.62.962 3.206 1.488 4.887 1.489 5.485 0 9.948-4.467 9.95-9.95.002-2.656-1.03-5.153-2.906-7.03C16.702 1.787 14.207.755 11.556.755c-5.495 0-9.958 4.468-9.96 9.953-.001 1.758.498 3.42 1.442 4.965l-.996 3.637 3.725-.976h.286zm12.333-6.202c-.328-.164-1.94-.957-2.24-1.066-.3-.11-.518-.164-.737.164-.22.328-.847 1.067-1.038 1.285-.19.219-.383.246-.71.082-.328-.164-1.385-.51-2.637-1.628-.975-.87-1.633-1.944-1.825-2.272-.19-.329-.02-.507.144-.67.148-.147.328-.383.493-.574.164-.192.22-.328.328-.547.11-.219.055-.41-.027-.574-.082-.164-.737-1.775-1.01-2.43-.266-.64-.537-.552-.737-.563-.19-.009-.41-.01-.628-.01-.22 0-.574.082-.875.41-.3.328-1.147 1.12-1.147 2.73 0 1.611 1.175 3.167 1.338 3.385.164.218 2.311 3.528 5.597 4.945.782.337 1.392.538 1.868.69.786.25 1.5.214 2.064.13.629-.093 1.939-.793 2.213-1.558.273-.765.273-1.42.191-1.558-.082-.137-.3-.218-.628-.382z"/></svg>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.min.js?v=131"></script>
+
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      flatpickr("input[type=date]", {
+        minDate: "today",
+        dateFormat: "Y-m-d"
+      });
+    });
+  </script>
+</body>
+</html>

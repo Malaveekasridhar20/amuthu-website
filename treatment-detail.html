@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">Treatment Details | Sri Amutha Dental Care</title>
+  <meta name="description" content="Learn more about our comprehensive dental treatments and procedures.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.min.css?v=122">
+  <style>
+    /* ── Treatment Detail Page ── */
+    .td-hero {
+      width: 100%;
+      padding: 160px 50px 80px;
+      background: #f4ddc9;
+      position: relative;
+      overflow: hidden;
+    }
+    .td-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .td-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(2, 26, 29, 0.55);
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+    .td-breadcrumb a {
+      color: rgba(2, 26, 29, 0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .td-breadcrumb a:hover { color: var(--gold-primary); }
+    .td-breadcrumb-sep { opacity: 0.4; }
+    .td-category-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(223,155,67,0.15);
+      border: 1px solid rgba(223,155,67,0.3);
+      color: var(--gold-primary);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+      margin-bottom: 18px;
+    }
+    .td-hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 4.5vw, 54px);
+      font-weight: 700;
+      color: #021a1d;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .td-hero-desc {
+      font-size: 16.5px;
+      color: #4a6060;
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+    .td-hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .td-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gradient-gold);
+      color: #ffffff;
+      padding: 15px 32px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font-primary);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 8px 24px rgba(223,155,67,0.3);
+      text-decoration: none;
+    }
+    .td-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(223,155,67,0.45); }
+    .td-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1.5px solid rgba(13, 72, 66, 0.28);
+      color: #0D4842;
+      background: transparent;
+      padding: 15px 28px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font-primary);
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+    .td-btn-outline:hover { border-color: rgba(13, 72, 66, 0.65); background: rgba(13, 72, 66, 0.05); }
+    /* Hero right image card */
+    .td-hero-card {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: 24px;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.04);
+    }
+    .td-hero-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+    .td-hero-card-body {
+      padding: 22px 26px;
+    }
+    .td-quick-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .td-fact {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #2b3a3c;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .td-fact svg { color: var(--gold-primary); flex-shrink: 0; }
+
+    /* Main content */
+    .td-main {
+      background: #ffffff;
+      padding: 80px 50px 100px;
+    }
+    .td-main-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* Content blocks */
+    .td-section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 700;
+      color: #021a1d;
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+    .td-section-tag {
+      color: var(--gold-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .td-lead {
+      font-size: 16.5px;
+      color: #4a6060;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+    .td-body {
+      font-size: 15.5px;
+      color: #556c6a;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .td-divider {
+      height: 1px;
+      background: rgba(2,23,26,0.07);
+      margin: 40px 0;
+    }
+
+    /* Benefits list */
+    .td-benefits {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .td-benefits li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 15.5px;
+      color: #3a5252;
+      line-height: 1.55;
+    }
+    .td-check {
+      width: 24px; height: 24px;
+      background: linear-gradient(135deg, #0D4842, #1a6b62);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Steps */
+    .td-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 32px;
+    }
+    .td-step {
+      display: flex;
+      gap: 20px;
+      position: relative;
+      padding-bottom: 28px;
+    }
+    .td-step:last-child { padding-bottom: 0; }
+    .td-step-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .td-step-num {
+      width: 40px; height: 40px;
+      background: #0D4842;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .td-step-line {
+      width: 2px;
+      flex: 1;
+      background: linear-gradient(180deg, #0D4842 0%, rgba(13,72,66,0.1) 100%);
+      margin-top: 8px;
+    }
+    .td-step:last-child .td-step-line { display: none; }
+    .td-step-body h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #021a1d;
+      margin-bottom: 6px;
+    }
+    .td-step-body p {
+      font-size: 14.5px;
+      color: #667876;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* FAQ */
+    .td-faq { display: flex; flex-direction: column; gap: 12px; }
+    .td-faq-item {
+      background: #ffffff;
+      border: 1.5px solid rgba(13,72,66,0.07);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+    .td-faq-item.active { border-color: rgba(223,155,67,0.4); }
+    .td-faq-q {
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-size: 15.5px;
+      font-weight: 600;
+      color: #0D4842;
+    }
+    .td-faq-icon {
+      width: 22px; height: 22px;
+      color: var(--gold-primary);
+      position: relative;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+    .td-faq-icon::before, .td-faq-icon::after {
+      content: '';
+      position: absolute;
+      background: currentColor;
+      border-radius: 2px;
+      transition: transform 0.3s ease;
+    }
+    .td-faq-icon::before { width: 12px; height: 2px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .td-faq-icon::after  { width: 2px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .td-faq-item.active .td-faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+    .td-faq-a {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 24px;
+      font-size: 14.5px;
+      color: #667876;
+      line-height: 1.65;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .td-faq-item.active .td-faq-a { max-height: 180px; padding-bottom: 20px; }
+
+    /* Sidebar */
+    .td-sidebar { position: sticky; top: 108px; }
+    .td-sidebar-card {
+      background: #ffffff;
+      border-radius: 22px;
+      border: 1.5px solid rgba(13,72,66,0.07);
+      box-shadow: 0 8px 30px rgba(2,23,26,0.06);
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .td-sidebar-top {
+      background: linear-gradient(135deg, #0D4842, #1a6b62);
+      padding: 28px 28px 24px;
+      text-align: center;
+    }
+    .td-sidebar-top h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .td-sidebar-top p { font-size: 13.5px; color: rgba(255,255,255,0.7); }
+    .td-sidebar-body { padding: 24px 28px; }
+    .td-sidebar-btn {
+      width: 100%;
+      background: linear-gradient(90deg, #DF9B43, #AB7637);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 15px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--font-primary);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .td-sidebar-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(223,155,67,0.38); }
+    .td-sidebar-call {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #0D4842;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 50px;
+      border: 1.5px solid rgba(13,72,66,0.15);
+      transition: all 0.25s ease;
+    }
+    .td-sidebar-call:hover { background: rgba(13,72,66,0.04); border-color: #0D4842; }
+    .td-info-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+    .td-info-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13.5px;
+      color: #556c6a;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(2,23,26,0.06);
+    }
+    .td-info-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .td-info-list li svg { color: #0D4842; flex-shrink: 0; }
+    .td-info-label { font-weight: 600; color: #021a1d; font-size: 13px; display: block; }
+    /* Related treatments sidebar */
+    .td-related-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+    .td-related-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      color: #3a5252;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .td-related-list a:hover { background: rgba(13,72,66,0.06); color: #0D4842; }
+    .td-related-list a svg { color: var(--gold-primary); flex-shrink: 0; }
+
+    /* Loupes highlight */
+    .td-technology-band {
+      background: #f5f4f0;
+      padding: 60px 50px;
+      margin: 0;
+    }
+    .td-tech-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .td-tech-img-wrap { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+    .td-tech-img { width: 100%; height: 380px; object-fit: cover; display: block; }
+    .td-tech-tag { color: var(--gold-dark); font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; display: block; margin-bottom: 14px; }
+    .td-tech-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 38px); color: #021a1d; font-weight: 700; margin-bottom: 18px; line-height: 1.2; }
+    .td-tech-desc { font-size: 15.5px; color: #4a6060; line-height: 1.75; margin-bottom: 28px; }
+    .td-tech-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .td-tech-pill {
+      display: flex; align-items: center; gap: 8px;
+      background: #ffffff;
+      border: 1px solid rgba(13,72,66,0.08);
+      color: #2b3a3c;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .td-tech-pill svg { color: var(--gold-primary); }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+      .td-hero { padding: 140px 30px 60px; }
+      .td-hero-inner { grid-template-columns: 1fr; }
+      .td-hero-card { display: none; }
+      .td-main { padding: 60px 24px; }
+      .td-main-inner { grid-template-columns: 1fr; }
+      .td-sidebar { position: static; }
+      .td-technology-band { padding: 50px 24px; }
+      .td-tech-inner { grid-template-columns: 1fr; gap: 30px; }
+    }
+    @media (max-width: 576px) {
+      .td-hero { padding: 120px 20px 50px; }
+      .td-hero-actions { flex-direction: column; }
+    }
+  </style>
+
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <title>Treatment Details | Sri Amutha Dental Care</title>
+  <link rel="canonical" href="https://sriamuthadental.com/treatment-detail.html">
+</head>
+<body>
+
+  <!-- HEADER -->
+    <!-- Premium Header -->
+  <header class="main-header">
+    
+    <!-- Top Section -->
+    <div class="header-top">
+      <div class="header-top-container">
+        
+        <!-- Left Column: Timings & Location -->
+        <div class="header-top-left">
+          <div class="top-info-item">
+            <svg class="top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Thuraiyur, Trichy</span>
+          </div>
+          <div class="top-info-item">
+            <svg class="top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>9 AM - 9 PM</span>
+          </div>
+        </div>
+
+        <!-- Center Column: Logo -->
+        <a href="index.html" class="logo-container" aria-label="Sri Amutha Dental Care Home">
+          <img loading="lazy" src="logo_icon.webp?v=3" alt="Sri Amutha Dental Care" class="logo-img-icon" width="60" height="72">
+          <img loading="lazy" src="logo_name.webp?v=4" alt="Sri Amutha Dental Care Name" class="logo-img-name" width="170" height="72">
+        </a>
+
+        <!-- Right Column: Contact Phone & CTA -->
+        <div class="header-top-right">
+          <div class="top-info-item">
+            <svg class="top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <a href="tel:+919843543812">+91 98435 43812</a>
+          </div>
+          <a href="#" class="btn-book-top" data-modal="apptModal">Book Appointment</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="header-bottom">
+      <div class="header-bottom-container">
+        
+        <!-- Logo shown ONLY on Mobile -->
+        <a href="index.html" class="logo-container mobile-logo-only" aria-label="Sri Amutha Dental Care Home">
+          <img loading="lazy" src="logo_icon.webp?v=3" alt="Sri Amutha Dental Care" class="logo-img-icon" width="34" height="40">
+          <img loading="lazy" src="logo_name.webp?v=4" alt="Sri Amutha Dental Care Name" class="logo-img-name" width="95" height="40">
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="nav-menu" id="navMenu">
+          <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="treatments.html" class="nav-link active">Treatments</a></li>
+            <li><a href="doctors.html" class="nav-link">Our Doctors</a></li>
+            <li><a href="index.html#testimonials" class="nav-link">Reviews</a></li>
+            <li><a href="academy.html" class="nav-link">Academy</a></li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-nav-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+
+      </div>
+    </div>
+
+  </header>
+
+  <main class="page-content">
+
+    <!-- HERO — filled by JS -->
+    <section class="td-hero" id="tdHero">
+      <div class="td-hero-inner">
+        <div>
+          <nav class="td-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="td-breadcrumb-sep">›</span>
+            <a href="treatments.html">Treatments</a>
+            <span class="td-breadcrumb-sep">›</span>
+            <span id="breadcrumbCurrent">Loading…</span>
+          </nav>
+          <div class="td-category-badge" id="heroBadge">— —</div>
+          <h1 id="heroTitle">Loading…</h1>
+          <p class="td-hero-desc" id="heroDesc"></p>
+          <div class="td-hero-actions">
+            <button class="td-btn-primary" data-modal="apptModal" id="heroBookBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              Book Appointment
+            </button>
+            <a href="tel:+919843543812" class="td-btn-outline">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6.29 6.29l.95-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              Call Us
+            </a>
+          </div>
+        </div>
+        <div class="td-hero-card">
+          <div class="td-hero-card-body">
+            <ul class="td-quick-facts" id="heroFacts"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT — filled by JS -->
+    <div class="td-main">
+      <div class="td-main-inner">
+
+        <!-- Left content -->
+        <div id="tdContent">
+          <span class="td-section-tag">— About This Treatment —</span>
+          <h2 class="td-section-title" id="contentTitle">Loading…</h2>
+          <p class="td-lead" id="contentLead"></p>
+          <p class="td-body" id="contentBody"></p>
+
+          <div class="td-divider"></div>
+
+          <span class="td-section-tag">— Key Benefits —</span>
+          <h3 class="td-section-title" style="font-size:26px;margin-bottom:22px;">Why Choose This Treatment?</h3>
+          <ul class="td-benefits" id="benefitsList"></ul>
+
+          <div class="td-divider"></div>
+
+          <span class="td-section-tag">— What to Expect —</span>
+          <h3 class="td-section-title" style="font-size:26px;margin-bottom:28px;">The Treatment Process</h3>
+          <div class="td-steps" id="stepsList"></div>
+
+          <div class="td-divider"></div>
+
+          <span class="td-section-tag">— Common Questions —</span>
+          <h3 class="td-section-title" style="font-size:26px;margin-bottom:22px;">Frequently Asked Questions</h3>
+          <div class="td-faq" id="faqList"></div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="td-sidebar">
+          <div class="td-sidebar-card">
+            <div class="td-sidebar-top">
+              <h3>Ready to Begin?</h3>
+              <p>Book a free consultation with our specialist today.</p>
+            </div>
+            <div class="td-sidebar-body">
+              <button class="td-sidebar-btn" data-modal="apptModal" id="sidebarBookBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                Book Appointment
+              </button>
+              <a href="tel:+919843543812" class="td-sidebar-call">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6.29 6.29l.95-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                +91 98435 43812
+              </a>
+            </div>
+          </div>
+
+          <div class="td-sidebar-card">
+            <div style="padding:24px 28px;">
+              <h4 style="font-size:15px;font-weight:700;color:#021a1d;margin-bottom:16px;">Treatment Info</h4>
+              <ul class="td-info-list" id="infoList"></ul>
+            </div>
+          </div>
+
+          <div class="td-sidebar-card">
+            <div style="padding:24px 28px;">
+              <h4 style="font-size:15px;font-weight:700;color:#021a1d;margin-bottom:16px;">Other Treatments</h4>
+              <ul class="td-related-list" id="relatedList"></ul>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+    <!-- Footer -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-container">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img loading="lazy" src="logo_icon.webp?v=3" alt="Sri Amutha Dental Care" class="footer-logo-img-icon" width="34" height="40">
+          <img loading="lazy" src="logo_name.webp?v=4" alt="Sri Amutha Dental Care Name" class="footer-logo-img-name" width="95" height="40">
+        </div>
+        <p class="footer-brand-desc">Experience world-class dental care with a gentle touch. Your healthy smile is our greatest reward.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/share/18m7gcki8u/?mibextid=wwXIfr" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/sri_amutha_dental_care?igsh=a2M4YmFkaDNvb2Y0&utm_source=qr" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://wa.me/919600043812?text=Message%20Sri%20Amutha%20Dental%20Care%20on%20WhatsApp." target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="index.html#our-services">Our Services</a></li>
+          <li><a href="doctors.html">Our Doctors</a></li>
+          <li><a href="index.html#our-process">Our Process</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
+          <li><a href="academy.html">Academy</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col footer-services-col">
+        <h4 class="footer-col-title">Our Services</h4>
+        <ul class="footer-links-grid">
+                    <li><a href="treatment-detail.html?service=cleaning">General dentistry</a></li>
+          <li><a href="treatment-detail.html?service=root-canal">Root Canal Treatment</a></li>
+          <li><a href="treatment-detail.html?service=smile-design">Smile designing</a></li>
+          <li><a href="treatment-detail.html?service=whitening">Teeth whitening</a></li>
+          <li><a href="treatment-detail.html?service=gum">Gum care</a></li>
+          <li><a href="treatment-detail.html?service=kids">Kids dentistry</a></li>
+          <li><a href="treatments.html">More &rarr;</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Contact Us</h4>
+        <ul class="footer-contact-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            23A, Salai Mariyamman Kovil Street,<br>Trichy Main Road, Thuraiyur - 621010
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6.29 6.29l.95-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +91 98435 43812
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            info@sriamuthadental.com
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>© 2026 Sri Amutha Dental Care. All rights reserved.</p>
+      <p class="footer-dev-credit">Website Developed by Malaveeka Sridhar</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- APPOINTMENT MODAL -->
+  <div class="appt-modal-overlay" id="apptModal" role="dialog" aria-modal="true" aria-labelledby="apptModalTitle">
+    <div class="appt-modal-box">
+      <button class="appt-modal-close" id="apptModalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="appt-modal-header">
+        <div class="appt-modal-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h2 class="appt-modal-title" id="apptModalTitle">Book an Appointment</h2>
+        <p class="appt-modal-subtitle">Fill in your details and we'll confirm your slot shortly.</p>
+      </div>
+      <form class="appt-modal-form" id="apptModalForm" novalidate>
+        <div class="appt-modal-field full-width"><label for="modal-service">Select Service <span class="req">*</span></label>
+          <select id="modal-service" required>
+            <option value="" disabled selected>— Select Treatment —</option>
+            <option value="cleaning">General dentistry</option>
+            <option value="root-canal">Root Canal Treatment</option>
+            <option value="smile-design">Smile designing</option>
+            <option value="whitening">Teeth whitening</option>
+            <option value="gum">Gum care</option>
+            <option value="kids">Kids dentistry</option>
+            <option value="surgery">Dental surgeries</option>
+            <option value="invisalign">Aligners</option>
+            <option value="braces">All types of braces</option>
+            <option value="laser">Crown and bridges</option>
+            <option value="dentures">Dentures</option>
+            <option value="preventive">Preventive dentistry</option>
+            <option value="wisdom">Wisdom tooth care</option>
+            <option value="implants">Dental implants</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="appt-modal-row">
+          <div class="appt-modal-field"><label for="modal-name">Full Name <span class="req">*</span></label><input type="text" id="modal-name" placeholder="Your full name" required></div>
+          <div class="appt-modal-field"><label for="modal-phone">Phone Number <span class="req">*</span></label><input type="tel" id="modal-phone" placeholder="+91 98XXX XXXXX" required></div>
+        </div>
+        <div class="appt-modal-row">
+          <div class="appt-modal-field"><label for="modal-date">Preferred Date <span class="req">*</span></label><input type="date" id="modal-date" required></div>
+          <div class="appt-modal-field"><label for="modal-time">Preferred Time</label>
+            <select id="modal-time">
+              <option value="" disabled selected>— Select Time —</option>
+              <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
+              <option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option>
+              <option>5:00 PM</option><option>6:00 PM</option><option>7:00 PM</option><option>8:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="appt-modal-field full-width"><label for="modal-message">Any Message (optional)</label><textarea id="modal-message" rows="3" placeholder="Describe your concern…"></textarea></div>
+        <button type="submit" class="appt-modal-submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>
+          Confirm Appointment
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <a href="https://wa.me/919600043812?text=Message%20Sri%20Amutha%20Dental%20Care%20on%20WhatsApp." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.62.962 3.206 1.488 4.887 1.489 5.485 0 9.948-4.467 9.95-9.95.002-2.656-1.03-5.153-2.906-7.03C16.702 1.787 14.207.755 11.556.755c-5.495 0-9.958 4.468-9.96 9.953-.001 1.758.498 3.42 1.442 4.965l-.996 3.637 3.725-.976h.286zm12.333-6.202c-.328-.164-1.94-.957-2.24-1.066-.3-.11-.518-.164-.737.164-.22.328-.847 1.067-1.038 1.285-.19.219-.383.246-.71.082-.328-.164-1.385-.51-2.637-1.628-.975-.87-1.633-1.944-1.825-2.272-.19-.329-.02-.507.144-.67.148-.147.328-.383.493-.574.164-.192.22-.328.328-.547.11-.219.055-.41-.027-.574-.082-.164-.737-1.775-1.01-2.43-.266-.64-.537-.552-.737-.563-.19-.009-.41-.01-.628-.01-.22 0-.574.082-.875.41-.3.328-1.147 1.12-1.147 2.73 0 1.611 1.175 3.167 1.338 3.385.164.218 2.311 3.528 5.597 4.945.782.337 1.392.538 1.868.69.786.25 1.5.214 2.064.13.629-.093 1.939-.793 2.213-1.558.273-.765.273-1.42.191-1.558-.082-.137-.3-.218-.628-.382z"/></svg>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.min.js?v=131"></script>
+  <script>
+  const TREATMENTS = {
+    implants: {
+      name: 'Dental implants', category: 'Surgical', serviceVal: 'implants',
+      heroDesc: 'Dental implants are the gold standard for replacing missing teeth. We place titanium implants that fuse with your jaw bone to provide a permanent, natural-feeling tooth root — topped with a custom-made crown that looks and functions exactly like a real tooth.',
+      facts: ['Permanent, lifetime solution','Natural look & feel','Preserves jaw bone','No impact on adjacent teeth'],
+      lead: 'At Sri Amutha Dental Care, our implant procedures are performed using dental loupes for maximum precision — ensuring implant placement to the exact angle and depth for optimal osseointegration.',
+      body: 'Dental implants are small titanium posts surgically placed into the jawbone where teeth are missing. As the bone heals, it fuses around the implant (a process called osseointegration), creating a stable foundation for a crown, bridge or denture. The result is a replacement tooth that is virtually indistinguishable from a natural tooth — in both appearance and function.',
+      benefits: ['Restores full chewing function so you can eat any food','Prevents bone loss that occurs with missing teeth','Improves speech and self-confidence','Lasts a lifetime with proper care','Does not require grinding down adjacent healthy teeth'],
+      steps: [
+        {t:'Consultation & Scan', d:'We take 3D digital scans using our intra-oral scanner to plan the exact implant position.'},
+        {t:'Implant Placement', d:'Under local anaesthesia, the titanium implant is placed with precision under dental loupes.'},
+        {t:'Healing Phase', d:'Over 3–6 months, the implant fuses with your jaw bone (osseointegration).'},
+        {t:'Abutment & Crown', d:'A custom ceramic crown is attached, perfectly matched to your surrounding teeth.'},
+        {t:'Follow-Up', d:'Routine check-ups ensure long-term success and comfort.'}
+      ],
+      faqs: [
+        {q:'Is implant surgery painful?', a:'The procedure is performed under local anaesthesia, so you won\'t feel pain during surgery. Mild soreness for 2–3 days afterward is normal and manageable with prescribed medication.'},
+        {q:'How long do dental implants last?', a:'With proper care, dental implants can last a lifetime. The crown may need replacement after 15–20 years.'},
+        {q:'Am I a candidate for implants?', a:'Most healthy adults with sufficient bone density are candidates. We assess your bone and gum health at the initial consultation.'},
+        {q:'How long does the process take?', a:'The complete process typically takes 4–9 months, including the healing period between implant placement and crown attachment.'}
+      ],
+      info: [
+        {label:'Duration', val:'60–90 min (placement)'},
+        {label:'Anaesthesia', val:'Local'},
+        {label:'Recovery', val:'3–5 days rest'},
+        {label:'Results', val:'Permanent'},
+        {label:'Technology', val:'Dental Loupes + 3D Scan'}
+      ]
+    },
+    surgery: {
+      name: 'Dental surgeries', category: 'Surgical', serviceVal: 'surgery',
+      heroDesc: 'From cyst removal and jaw surgeries to bone grafting and complex extractions, our surgical team handles every oral surgical need with precision and care.',
+      facts: ['All oral surgeries under one roof','Advanced surgical techniques','Minimal recovery protocols','Experienced surgical team'],
+      lead: 'Our oral surgical procedures are performed with dental loupe magnification and the finest instruments, ensuring precise incisions and faster healing with minimal trauma to surrounding tissue.',
+      body: 'Oral and maxillofacial surgery encompasses a wide range of procedures including tooth extractions (simple and surgical), cyst and tumour removal, jaw realignment, bone grafting for implant preparation, frenectomies, and more. Every surgery is planned carefully using digital imaging to ensure the safest and most efficient outcome.',
+      benefits: ['Relieves pain and resolves infection quickly','Prevents spread of disease to neighbouring teeth','Prepares jaw for dental implants','Improves bite and jaw function','Performed with precision loupe magnification'],
+      steps: [
+        {t:'Diagnosis & Imaging', d:'Digital X-rays and 3D scans to understand the extent of the surgical need.'},
+        {t:'Pre-surgical Planning', d:'We explain the full procedure, risks, and aftercare before surgery day.'},
+        {t:'Surgery', d:'Procedure performed under local (or IV) sedation with loupe magnification for precision.'},
+        {t:'Suturing & Dressing', d:'Careful closure to minimise healing time and reduce scarring.'},
+        {t:'Post-op Care', d:'Detailed aftercare instructions and follow-up visits to monitor healing.'}
+      ],
+      faqs: [
+        {q:'Will I be awake during surgery?', a:'Most procedures use local anaesthesia. Sedation options are available for anxious patients.'},
+        {q:'How long is the recovery?', a:'Simple extractions: 2–3 days. More complex surgeries: 5–10 days depending on the procedure.'},
+        {q:'What should I eat after surgery?', a:'Soft foods for the first few days — yoghurt, soups, mashed foods. We provide detailed dietary advice.'}
+      ],
+      info: [{label:'Duration', val:'30–120 min'},{label:'Anaesthesia', val:'Local / Sedation'},{label:'Recovery', val:'3–10 days'},{label:'Technology', val:'Dental Loupes + Digital Imaging'}]
+    },
+    invisalign: {
+      name: 'Aligners', category: 'Orthodontic', serviceVal: 'invisalign',
+      heroDesc: 'Straighten your teeth discreetly with custom clear aligners, designed using advanced 3D scanning technology. No metal, no discomfort — just a confident smile at every stage.',
+      facts: ['Virtually invisible aligners','Removable for eating & cleaning','No metal wires or brackets','Custom-fit with 3D digital scan'],
+      lead: 'Using our state-of-the-art intra-oral scanner, we capture a precise 3D model of your teeth to design a customised Invisalign treatment plan — no messy impressions required.',
+      body: 'Invisalign uses a series of clear, removable aligners made from SmartTrack® material that gently shift your teeth into position. Each aligner is worn for about two weeks before moving to the next in the series. The result: straighter teeth with virtually no lifestyle disruption.',
+      benefits: ['Virtually invisible — nobody can tell you\'re wearing them','Removable for meals, sports, and special occasions','Easier to maintain oral hygiene versus fixed braces','Comfortable with no sharp metal edges','Predictable results visible from day one via digital simulation'],
+      steps: [
+        {t:'3D Digital Scan', d:'Our intra-oral scanner captures a precise 3D model of your teeth in minutes.'},
+        {t:'Digital Treatment Preview', d:'We show you a simulation of your final smile before starting.'},
+        {t:'Custom Aligners Delivered', d:'Your personalised set of aligners is manufactured and fitted.'},
+        {t:'Progress Check-ins', d:'Regular visits every 6–8 weeks to monitor progress.'},
+        {t:'Retainers', d:'After treatment, retainers keep your smile perfectly aligned.'}
+      ],
+      faqs: [
+        {q:'How long does Invisalign take?', a:'Mild cases: 6–12 months. Moderate: 12–18 months. We give you a personalised timeline at consultation.'},
+        {q:'Can I eat normally with Invisalign?', a:'Yes! You simply remove the aligners while eating and drinking (except water).'},
+        {q:'Does it hurt?', a:'Mild pressure for the first day or two after switching to a new aligner is normal — this is a sign the teeth are moving.'}
+      ],
+      info: [{label:'Duration', val:'6–18 months'},{label:'Visits', val:'Every 6–8 weeks'},{label:'Wear Time', val:'20–22 hrs/day'},{label:'Technology', val:'Intra-Oral Scanner + ClinCheck 3D'}]
+    },
+    braces: {
+      name: 'All types of braces', category: 'Orthodontic', serviceVal: 'braces',
+      heroDesc: 'Metal, ceramic, lingual and self-ligating braces — we offer every type to suit your needs, budget and lifestyle while delivering a straight, healthy smile.',
+      facts: ['Metal, ceramic & lingual options','Self-ligating for faster treatment','Suitable for all ages','Expert orthodontic care'],
+      lead: 'Our orthodontic treatments are customised to each patient\'s bite and facial structure. We use the latest bracket systems and wire technology for efficient, comfortable tooth movement.',
+      body: 'Braces work by applying consistent gentle pressure on teeth over time, gradually moving them into the correct position. We offer: metal braces (most affordable, durable), ceramic braces (tooth-coloured, less visible), lingual braces (placed behind teeth, completely hidden), and self-ligating braces (reduced friction, shorter treatment time).',
+      benefits: ['Corrects crowding, spacing, overbites and underbites','Improves bite function and prevents wear','Enhances facial profile and smile aesthetics','Durable and effective for complex cases','Lasts a lifetime with retainers'],
+      steps: [
+        {t:'Orthodontic Consultation', d:'Clinical examination, X-rays and photographs to plan your treatment.'},
+        {t:'Braces Fitting', d:'Brackets bonded to teeth and wire threaded through — the process is painless.'},
+        {t:'Monthly Adjustments', d:'Regular visits to tighten wires and monitor tooth movement.'},
+        {t:'Debonding', d:'Braces removed once the target alignment is achieved.'},
+        {t:'Retainer Phase', d:'Removable or fixed retainers to maintain your new smile permanently.'}
+      ],
+      faqs: [
+        {q:'Which type of braces is best?', a:'It depends on your case, lifestyle and budget. We recommend the best option after a thorough clinical assessment.'},
+        {q:'How long does braces treatment take?', a:'Typically 12–30 months depending on the complexity of alignment issues.'},
+        {q:'Are braces painful?', a:'Mild soreness for 2–3 days after fitting and adjustments is normal. Over-the-counter pain relief helps.'}
+      ],
+      info: [{label:'Duration', val:'12–30 months'},{label:'Visit Frequency', val:'Every 4–6 weeks'},{label:'Options', val:'Metal / Ceramic / Lingual'},{label:'Technology', val:'Digital Planning'}]
+    },
+    dentures: {
+      name: 'Dentures', category: 'Restorative', serviceVal: 'dentures',
+      heroDesc: 'Custom-crafted complete and partial dentures that restore your ability to eat, speak and smile — designed for natural appearance and lasting comfort.',
+      facts: ['Complete & partial options','Custom shade matched','Implant-supported available','Immediate dentures available'],
+      lead: 'Our dentures are designed to the highest aesthetic standards, matched precisely to your facial structure, skin tone and remaining teeth to ensure a completely natural result.',
+      body: 'Modern dentures are far more comfortable and natural-looking than older designs. Complete dentures replace all teeth in an arch, while partial dentures fill the gaps when some natural teeth remain. We also offer implant-supported dentures which are anchored to implants for superior stability — eliminating slipping and improving chewing efficiency dramatically.',
+      benefits: ['Restores chewing ability and proper nutrition','Supports facial muscles to prevent sunken appearance','Improves confidence in speaking and smiling','Implant-supported dentures eliminate movement','Affordable option compared to full implant rehabilitation'],
+      steps: [
+        {t:'Impressions & Measurements', d:'Detailed measurements and shade selection for a natural match.'},
+        {t:'Wax Trial Fitting', d:'A wax version is fitted to check aesthetics and bite before finalisation.'},
+        {t:'Final Fitting', d:'The finished denture is fitted and adjusted for perfect comfort.'},
+        {t:'Review Appointments', d:'Follow-up visits to ensure optimal comfort and function.'}
+      ],
+      faqs: [
+        {q:'How long do dentures last?', a:'With proper care, 5–8 years before relining or replacement is needed. Implant-supported dentures last longer.'},
+        {q:'Will dentures look natural?', a:'Yes — our custom-crafted dentures are designed to look completely natural and complement your facial features.'},
+        {q:'Can I sleep with dentures?', a:'We recommend removing dentures at night to allow gum tissue to rest and to clean them.'}
+      ],
+      info: [{label:'Type', val:'Complete / Partial / Implant-supported'},{label:'Fitting Time', val:'3–5 appointments'},{label:'Duration', val:'5–8 years'},{label:'Care', val:'Remove nightly'}]
+    },
+    'root-canal': {
+      name: 'Root Canal Treatment', category: 'Endodontic', serviceVal: 'root-canal',
+      heroDesc: 'Advanced microscope-guided root canal therapy that saves your natural teeth — performed with dental loupe magnification for unparalleled precision and virtually painless recovery.',
+      facts: ['Performed under dental loupes','Virtually painless with modern anaesthesia','Saves your natural tooth','Microscope-guided precision'],
+      lead: 'At Sri Amutha Dental Care, root canal therapy is performed with dental loupe magnification — allowing us to visualise the canal system in extraordinary detail, navigate fine canals precisely, and achieve thorough cleaning that ordinary techniques cannot match.',
+      body: 'Root canal therapy removes infected pulp tissue from inside the tooth, cleans and shapes the root canals, then seals them to prevent reinfection. With modern anaesthesia and loupe-guided precision, the procedure is no more uncomfortable than getting a filling. A crown is placed after treatment to protect the tooth for years to come.',
+      benefits: ['Saves your natural tooth — always the best option','Eliminates tooth pain and stops infection spreading','Virtually painless with proper anaesthesia','Loupe magnification ensures thorough cleaning of every canal','Crown placed after ensures long-term durability'],
+      steps: [
+        {t:'Diagnosis & X-ray', d:'Digital X-ray and clinical examination to assess infection extent.'},
+        {t:'Anaesthesia', d:'Local anaesthesia ensures complete comfort throughout the procedure.'},
+        {t:'Pulp Removal', d:'Infected pulp carefully removed under dental loupe magnification.'},
+        {t:'Canal Cleaning & Shaping', d:'Root canals are cleaned, shaped and disinfected with precision instruments.'},
+        {t:'Sealing & Crown', d:'Canals sealed with gutta-percha; crown fitted to protect the tooth.'}
+      ],
+      faqs: [
+        {q:'Is root canal painful?', a:'With modern anaesthesia, root canal treatment is no more painful than a regular filling. Most patients are surprised by how comfortable it is.'},
+        {q:'How many appointments are needed?', a:'Usually 1–2 appointments depending on the complexity of the infection.'},
+        {q:'How long does a root-canal treated tooth last?', a:'With a proper crown and good oral hygiene, a root-canal treated tooth can last a lifetime.'}
+      ],
+      info: [{label:'Duration', val:'60–90 min'},{label:'Appointments', val:'1–2 visits'},{label:'Anaesthesia', val:'Local'},{label:'Technology', val:'Dental Loupes + Rotary Files'},{label:'Follow-up', val:'Crown placement'}]
+    },
+    'smile-design': {
+      name: 'Smile designing', category: 'Cosmetic', serviceVal: 'smile-design',
+      heroDesc: 'A complete smile transformation personalised to your face — using veneers, bonding, whitening, contouring and the latest digital smile design tools.',
+      facts: ['Digital smile preview before treatment','Veneers, bonding & whitening combined','Gum contouring included','Natural, bespoke results'],
+      lead: 'Smile designing is the art and science of creating a smile that is beautiful, natural and uniquely yours. Using digital photos and smile design software, we preview your new smile with you before any treatment begins.',
+      body: 'A smile design may combine multiple treatments: dental veneers (thin porcelain shells bonded to the front of teeth), composite bonding (tooth-coloured resin for chips and gaps), professional whitening, gum contouring (reshaping the gum line), and tooth recontouring. Each element is planned to complement your face shape, lip line and skin tone.',
+      benefits: ['Completely transforms your smile in 1–3 visits','Preview your results digitally before any treatment','Custom veneers match perfectly to adjacent teeth','Long-lasting, stain-resistant porcelain materials','Boosts confidence and overall appearance'],
+      steps: [
+        {t:'Smile Analysis', d:'We photograph and analyse your face, gum line, tooth colour and shape.'},
+        {t:'Digital Smile Design', d:'We create a digital preview of your new smile for your approval.'},
+        {t:'Treatment Planning', d:'A customised combination of procedures is planned and explained.'},
+        {t:'Treatment', d:'Veneers, bonding, whitening and contouring performed in stages.'},
+        {t:'Reveal & Aftercare', d:'Your new smile is revealed with care and maintenance advice provided.'}
+      ],
+      faqs: [
+        {q:'How long do veneers last?', a:'Porcelain veneers last 10–15 years with proper care. Composite bonding lasts 5–7 years.'},
+        {q:'Is smile designing painful?', a:'Most procedures involve minimal or no discomfort. Light anaesthesia is used where needed.'},
+        {q:'Can I see what my smile will look like before treatment?', a:'Yes — we use digital smile design software to show you a preview before any irreversible treatment begins.'}
+      ],
+      info: [{label:'Duration', val:'1–3 appointments'},{label:'Veneers Lifespan', val:'10–15 years'},{label:'Technology', val:'Digital Smile Design'},{label:'Includes', val:'Whitening + Contouring'}]
+    },
+    cleaning: {
+      name: 'General dentistry', category: 'Preventive', serviceVal: 'cleaning',
+      heroDesc: 'Comprehensive general dental care including diagnostics, cleanings, tooth fillings, and preventative care to keep your smile healthy and strong.',
+      facts: ['Comprehensive diagnostics','Tooth-coloured composite fillings','Scaling & plaque removal','Family dental care'],
+      lead: 'General dentistry is the foundation of long-term oral health.',
+      body: 'General dentistry encompasses essential preventive and restorative care. During your check-up, we evaluate your teeth, gums, and mouth using advanced visual magnifying loupes. If cavities are found, we restore them with premium tooth-colored composite resins. Professional cleanings are performed to remove built-up plaque and tartar, protecting you from gum disease and enamel decay.',
+      benefits: ['Prevents major tooth decay and cavities','Keeps gums healthy and prevents bleeding','Restores chipped or decayed teeth with natural composite','Detects oral health issues at early stages','Maintains fresh breath and smooth tooth surfaces'],
+      steps: [
+        {t:'Visual Examination', d:'We check your teeth and gums under dental loupes magnification.'},
+        {t:'Diagnostics & Digital X-rays', d:'X-rays are taken to detect decay hidden between teeth or under gums.'},
+        {t:'Tooth Fillings & Care', d:'Any tooth decay is carefully removed and repaired with natural resin fillings.'},
+        {t:'Cleaning & Polishing', d:'Built-up plaque and tartar are removed to protect gum lines.'}
+      ],
+      faqs: [
+        {q:'What is general dentistry?', a:'It covers all primary dental care including examinations, fillings, root canals, extraction, and routine cleanings.'},
+        {q:'Do tooth-coloured fillings look natural?', a:'Yes — composite resin is shade-matched to your surrounding teeth, making the restoration virtually invisible.'},
+        {q:'How often should I get a check-up?', a:'Every 6 months is recommended to catch decay early and keep your mouth healthy.'}
+      ],
+      info: [{label:'Duration', val:'30–60 min'},{label:'Material', val:'Composite resin / Glass ionomer'},{label:'Anaesthesia', val:'None / Local'},{label:'Checks', val:'Gums, Teeth, Soft Tissues'}]
+    },
+    whitening: {
+      name: 'Teeth whitening', category: 'Cosmetic', serviceVal: 'whitening',
+      heroDesc: 'Brighten your smile by up to 8 shades with our professional in-clinic whitening — fast, safe and dramatically effective in a single visit.',
+      facts: ['Up to 8 shades brighter','In-clinic: results in 1 hour','Take-home kits available','Safe for enamel'],
+      lead: 'Professional teeth whitening at Sri Amutha Dental Care uses clinically proven peroxide gels at concentrations that are both effective and safe — delivering results far superior to any over-the-counter product.',
+      body: 'Our in-clinic whitening system activates a professional-grade whitening gel with a specialised light to break down stains deep within the enamel. The result: dramatically whiter teeth in just one hour. We also offer custom take-home whitening kits with custom-fitted trays for gradual whitening at your convenience.',
+      benefits: ['Dramatically whiter teeth in one appointment','Safe and clinically proven peroxide formulas','Results that over-the-counter products cannot achieve','Custom take-home kits for maintenance','Boosts confidence and overall appearance'],
+      steps: [
+        {t:'Shade Assessment', d:'We photograph and record your current shade to track the improvement.'},
+        {t:'Gum Protection', d:'A protective barrier is applied to gums before the gel is placed.'},
+        {t:'Gel Application', d:'Professional whitening gel applied to teeth surfaces.'},
+        {t:'Activation', d:'Specialised light activates the gel to accelerate whitening.'},
+        {t:'Reveal', d:'Results visible immediately — up to 8 shades brighter in one visit.'}
+      ],
+      faqs: [
+        {q:'Is teeth whitening safe?', a:'Yes — when performed by a dental professional using clinically approved gels. We protect your gums throughout the procedure.'},
+        {q:'How long do results last?', a:'6 months to 2 years depending on diet and habits. Regular maintenance with our take-home kit extends results.'},
+        {q:'Will whitening work on crowns or veneers?', a:'Whitening only works on natural tooth enamel. Crowns and veneers do not change colour.'}
+      ],
+      info: [{label:'Duration', val:'60–90 min (in-clinic)'},{label:'Results', val:'Up to 8 shades brighter'},{label:'Longevity', val:'1–2 years'},{label:'Options', val:'In-clinic + Take-home'}]
+    },
+    kids: {
+      name: 'Kids dentistry', category: 'Preventive', serviceVal: 'kids',
+      heroDesc: 'Gentle, friendly dental care for children in a warm and welcoming environment — building healthy habits and positive associations with the dentist from an early age.',
+      facts: ['Child-friendly environment','Gentle, patient approach','Preventive focus','First visit from age 1 year'],
+      lead: 'We believe a child\'s first dental experiences shape their attitude toward oral health for life. Our team is specially trained to make every visit fun, calm and positive — so children actually look forward to coming back.',
+      body: 'Children\'s dentistry encompasses routine check-ups, cleaning, fluoride treatments, fissure sealants, treatment of milk teeth cavities, space maintainers for early tooth loss, and advice on habits such as thumb-sucking and diet. Early intervention prevents complex problems later.',
+      benefits: ['Early detection and prevention of cavities','Fluoride treatments to strengthen developing teeth','Sealants protect vulnerable fissures','Establishes positive dental habits for life','Space maintainers prevent misalignment from early tooth loss'],
+      steps: [
+        {t:'First Visit (Age 1)', d:'A gentle introduction to the dental chair, tools and team — no treatment, just familiarity.'},
+        {t:'Regular Check-ups', d:'Every 6 months from age 2 for examination and cleaning.'},
+        {t:'Preventive Treatments', d:'Fluoride and sealants applied at appropriate developmental stages.'},
+        {t:'Treatment if Needed', d:'Cavities treated gently with child-appropriate techniques and anaesthesia.'}
+      ],
+      faqs: [
+        {q:'When should my child first visit the dentist?', a:'By age 1 or within 6 months of the first tooth appearing. Early visits build familiarity and trust.'},
+        {q:'Are X-rays safe for children?', a:'Yes — we use digital X-rays which emit a fraction of the radiation of traditional X-rays.'},
+        {q:'How can I prepare my child for a dental visit?', a:'Read them books about dentists, talk positively about the visit, and avoid words like "needle" or "hurt". We do the rest!'}
+      ],
+      info: [{label:'First Visit', val:'Age 1 year'},{label:'Check-ups', val:'Every 6 months'},{label:'Includes', val:'Exam + Clean + Fluoride'},{label:'Approach', val:'Fun & Fear-Free'}]
+    },
+    preventive: {
+      name: 'Preventive dentistry', category: 'Preventive', serviceVal: 'preventive',
+      heroDesc: 'Comprehensive preventive care for your whole family — check-ups, cleanings, X-rays, fluoride, sealants and personalised oral hygiene advice.',
+      facts: ['Full-family preventive care','Digital X-rays (low radiation)','Fluoride & sealant treatments','Personalised oral hygiene plans'],
+      lead: 'Prevention is the most cost-effective form of dental care. Regular preventive visits catch problems early — when they are smallest, cheapest and easiest to treat — saving you time, money and discomfort.',
+      body: 'Our preventive care programme includes: comprehensive oral examinations, professional cleaning (scaling and polishing), digital X-rays, oral cancer screening, fluoride treatments, fissure sealants for children, and tailored oral hygiene instruction. We educate every patient on diet, brushing technique, and the right products for their specific needs.',
+      benefits: ['Catches cavities and gum disease before they worsen','Oral cancer screening at every visit','Personalised diet and hygiene advice','Fluoride and sealants dramatically reduce cavity risk','Saves money by avoiding complex treatments'],
+      steps: [
+        {t:'Comprehensive Examination', d:'Thorough check of teeth, gums, bite, jaw, and oral tissues.'},
+        {t:'Digital X-rays', d:'Low-radiation digital imaging to detect hidden cavities and bone issues.'},
+        {t:'Oral Cancer Screening', d:'Systematic examination of soft tissues at every visit.'},
+        {t:'Professional Cleaning', d:'Scaling and polishing to remove tartar and surface stains.'},
+        {t:'Preventive Treatments', d:'Fluoride and sealants applied as appropriate.'},
+        {t:'Personalised Advice', d:'Brushing technique, flossing and diet guidance specific to your needs.'}
+      ],
+      faqs: [
+        {q:'How often should I have a dental check-up?', a:'Every 6 months for most adults. High-risk individuals (smokers, diabetics, gum disease patients) may benefit from more frequent visits.'},
+        {q:'Is oral cancer screening necessary?', a:'Yes — early detection dramatically improves outcomes. We screen at every routine visit.'},
+        {q:'What are fissure sealants?', a:'Thin plastic coatings applied to the chewing surfaces of back teeth to seal the grooves where cavities most often form.'}
+      ],
+      info: [{label:'Frequency', val:'Every 6 months'},{label:'Duration', val:'45–60 min'},{label:'Includes', val:'Exam + X-ray + Clean + Screen'},{label:'Suitable For', val:'All ages'}]
+    },
+    laser: {
+      name: 'Crown and bridges', category: 'Advanced', serviceVal: 'laser',
+      heroDesc: 'Premium custom crowns and bridges to repair damaged teeth or replace missing ones, restoring complete chewing function and natural appearance.',
+      facts: ['Premium zirconia & ceramic','Custom shade matching','Restores full chewing power','Durable, long-lasting results'],
+      lead: 'Restore your smile\'s strength and appearance with custom-crafted crowns and bridges.',
+      body: 'A crown is a custom-fit cap that covers a damaged tooth to restore its shape, strength, and function. A bridge is used to replace one or more missing teeth, anchored to the healthy adjacent teeth. We use premium zirconia and porcelain materials for an ultra-durable, biocompatible, and completely natural finish.',
+      benefits: ['Restores complete chewing ability and proper bite','Prevents surrounding teeth from shifting','Supports natural facial structure','Custom shade-matched for seamless aesthetics','Highly durable and biocompatible materials'],
+      steps: [
+        {t:'Teeth Preparation', d:'The target teeth are gently shaped to receive the crown or bridge.'},
+        {t:'Digital Impression', d:'Precise 3D scans or impressions are taken for custom fabrication.'},
+        {t:'Temporary Placement', d:'A temporary crown/bridge is placed to protect the prepared teeth.'},
+        {t:'Final Bonding', d:'The custom permanent restoration is adjusted and bonded securely.'}
+      ],
+      faqs: [
+        {q:'What is the difference between a crown and a bridge?', a:'A crown covers a single damaged tooth, while a bridge fills the gap of one or more missing teeth by anchoring to neighboring teeth.'},
+        {q:'How long do crowns and bridges last?', a:'With good oral hygiene and regular dental checkups, they typically last 10 to 15 years or longer.'},
+        {q:'Is the preparation process painful?', a:'We use local anesthesia during the preparation stage, so you won\'t feel any pain. Some mild sensitivity afterward is normal and temporary.'}
+      ],
+      info: [{label:'Duration', val:'2 visits'},{label:'Material', val:'Zirconia / Porcelain / PFM'},{label:'Lifespan', val:'10–15+ years'},{label:'Anaesthesia', val:'Local'}]
+    },
+    gum: {
+      name: 'Gum care', category: 'Surgical', serviceVal: 'gum',
+      heroDesc: 'Complete gum health treatment — from scaling and root planing for gum disease to laser gum contouring and advanced periodontal surgery.',
+      facts: ['Full spectrum of gum care','Laser-assisted procedures','Periodontal disease treatment','Gum contouring available'],
+      lead: 'Healthy gums are the foundation of a healthy mouth. Our team specialises in diagnosing and treating all stages of gum disease — from early gingivitis to advanced periodontitis — as well as aesthetic gum procedures.',
+      body: 'Our gum services include: scaling and root planing (deep cleaning below the gum line), flap surgery for advanced periodontal disease, laser gum contouring, gingival grafts to cover exposed roots, and frenectomy. We also treat gummy smiles by reshaping excess gum tissue to reveal more of your natural teeth.',
+      benefits: ['Treats gum disease at all stages before tooth loss occurs','Laser contouring reshapes an uneven or "gummy" smile','Gum grafts cover exposed roots to reduce sensitivity','Improves the overall aesthetics of your smile','Prevents systemic health complications linked to gum disease'],
+      steps: [
+        {t:'Periodontal Assessment', d:'Gum pocket depth measured at all teeth, X-rays taken to assess bone levels.'},
+        {t:'Deep Cleaning', d:'Scaling and root planing removes tartar from below the gum line.'},
+        {t:'Re-evaluation', d:'After 4–6 weeks, we assess the response to initial treatment.'},
+        {t:'Surgical Treatment (if needed)', d:'Laser or conventional flap surgery for advanced cases.'},
+        {t:'Maintenance Programme', d:'Ongoing 3–4 monthly hygiene visits to keep gum disease under control.'}
+      ],
+      faqs: [
+        {q:'Can gum disease be reversed?', a:'Gingivitis (early stage) is fully reversible with professional cleaning and good home care. Advanced periodontitis can be managed but not fully reversed.'},
+        {q:'Is gum treatment painful?', a:'Deep cleaning is performed under local anaesthesia. Laser procedures often require little or no anaesthesia.'},
+        {q:'What happens if gum disease is left untreated?', a:'It progresses to bone loss around teeth and eventually tooth loss. It has also been linked to heart disease and diabetes.'}
+      ],
+      info: [{label:'Stages', val:'Gingivitis → Periodontitis'},{label:'Anaesthesia', val:'Local'},{label:'Frequency', val:'Maintenance every 3 months'},{label:'Technology', val:'Laser + Ultrasonic'}]
+    },
+    wisdom: {
+      name: 'Wisdom tooth care', category: 'Surgical', serviceVal: 'wisdom',
+      heroDesc: 'Safe, precise wisdom tooth removal and management — relieving pain, resolving infections and protecting alignment with minimal discomfort.',
+      facts: ['Simple & surgical extractions','Impacted tooth management','Performed under loupe magnification','Same-day emergency appointments'],
+      lead: 'Wisdom tooth complications are among the most common dental emergencies. Our experienced team performs both simple and surgical wisdom tooth extractions with precision, efficiency and complete patient comfort.',
+      body: 'Wisdom teeth (third molars) often emerge in the late teens or early twenties — frequently causing problems due to lack of space. They may become impacted (unable to emerge fully), grow at an angle pressing against adjacent teeth, or cause recurring infections. Removal, performed under local anaesthesia, is usually straightforward with proper aftercare.',
+      benefits: ['Relieves severe pain caused by impacted wisdom teeth','Prevents damage to adjacent second molars','Eliminates recurrent infections in the gum flap','Prevents crowding and misalignment of front teeth','Procedure takes as little as 20–40 minutes per tooth'],
+      steps: [
+        {t:'X-ray Evaluation', d:'Panoramic X-ray to assess position, angulation and root shape.'},
+        {t:'Pre-extraction Preparation', d:'Local anaesthesia administered; full numbness confirmed before starting.'},
+        {t:'Extraction', d:'Tooth removed using controlled surgical technique under dental loupe magnification.'},
+        {t:'Suturing', d:'Self-dissolving sutures placed if needed for optimal healing.'},
+        {t:'Aftercare', d:'Detailed aftercare instructions, antibiotics and pain relief prescribed.'}
+      ],
+      faqs: [
+        {q:'Should all wisdom teeth be removed?', a:'Not necessarily. We remove them only when they cause problems or pose a risk of future complications.'},
+        {q:'How long is recovery?', a:'Most patients recover within 3–5 days. Complex impacted cases may take 7–10 days.'},
+        {q:'Can I eat normally after removal?', a:'Soft foods for the first 3–4 days. We provide a full list of what to eat and avoid.'}
+      ],
+      info: [{label:'Duration', val:'20–60 min'},{label:'Anaesthesia', val:'Local'},{label:'Recovery', val:'3–7 days'},{label:'Technology', val:'Dental Loupes + Panoramic X-ray'}]
+    }
+  };
+
+  // All other treatments for "related" sidebar
+  const ALL_RELATED = [
+    ['cleaning','General dentistry'],
+    ['root-canal','Root Canal Treatment'],
+    ['smile-design','Smile designing'],
+    ['whitening','Teeth whitening'],
+    ['gum','Gum care'],
+    ['kids','Kids dentistry'],
+    ['surgery','Dental surgeries'],
+    ['invisalign','Aligners'],
+    ['braces','All types of braces'],
+    ['laser','Crown and bridges'],
+    ['dentures','Dentures'],
+    ['preventive','Preventive dentistry'],
+    ['wisdom','Wisdom tooth care'],
+    ['implants','Dental implants']
+  ];
+
+  function renderPage() {
+    const params = new URLSearchParams(window.location.search);
+    const key = params.get('service') || 'implants';
+    const data = TREATMENTS[key] || TREATMENTS['implants'];
+
+    // Update meta
+    document.getElementById('pageTitle').textContent = data.name + ' | Sri Amutha Dental Care';
+    document.getElementById('pageDesc').content = 'Learn about ' + data.name + ' at Sri Amutha Dental Care, Thuraiyur.';
+    document.getElementById('breadcrumbCurrent').textContent = data.name;
+    document.getElementById('heroBadge').textContent = '— ' + data.category + ' —';
+    document.getElementById('heroTitle').textContent = data.name;
+    document.getElementById('heroDesc').textContent = data.heroDesc;
+
+    // Hero book btn data-service
+    document.getElementById('heroBookBtn').dataset.service = data.serviceVal;
+    document.getElementById('sidebarBookBtn').dataset.service = data.serviceVal;
+
+    // Quick facts
+    const factsEl = document.getElementById('heroFacts');
+    factsEl.innerHTML = data.facts.map(f => `
+      <li class="td-fact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+        ${f}
+      </li>`).join('');
+
+    // Main content
+    document.getElementById('contentTitle').textContent = data.name + ' — Full Overview';
+    document.getElementById('contentLead').textContent = data.lead;
+    document.getElementById('contentBody').textContent = data.body;
+
+    // Benefits
+    const benefEl = document.getElementById('benefitsList');
+    benefEl.innerHTML = data.benefits.map(b => `
+      <li>
+        <span class="td-check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="20 6 9 17 4 12"/></svg>
+        </span>
+        ${b}
+      </li>`).join('');
+
+    // Steps
+    const stepsEl = document.getElementById('stepsList');
+    stepsEl.innerHTML = data.steps.map((s, i) => `
+      <div class="td-step">
+        <div class="td-step-left">
+          <div class="td-step-num">0${i+1}</div>
+          <div class="td-step-line"></div>
+        </div>
+        <div class="td-step-body">
+          <h4>${s.t}</h4>
+          <p>${s.d}</p>
+        </div>
+      </div>`).join('');
+
+    // FAQs
+    const faqEl = document.getElementById('faqList');
+    faqEl.innerHTML = data.faqs.map((f, i) => `
+      <div class="td-faq-item" id="faq${i}">
+        <div class="td-faq-q" onclick="toggleFaq('faq${i}')">
+          ${f.q}
+          <span class="td-faq-icon"></span>
+        </div>
+        <div class="td-faq-a">${f.a}</div>
+      </div>`).join('');
+
+    // Sidebar info
+    const infoEl = document.getElementById('infoList');
+    infoEl.innerHTML = data.info.map(item => `
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <div><span class="td-info-label">${item.label}</span>${item.val}</div>
+      </li>`).join('');
+
+    // Related treatments
+    const relEl = document.getElementById('relatedList');
+    relEl.innerHTML = ALL_RELATED.filter(r => r[0] !== key).slice(0, 8).map(r => `
+      <li>
+        <a href="treatment-detail.html?service=${r[0]}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="9 18 15 12 9 6"/></svg>
+          ${r[1]}
+        </a>
+      </li>`).join('');
+  }
+
+  function toggleFaq(id) {
+    const item = document.getElementById(id);
+    const isOpen = item.classList.contains('active');
+    document.querySelectorAll('.td-faq-item').forEach(el => el.classList.remove('active'));
+    if (!isOpen) item.classList.add('active');
+  }
+
+  renderPage();
+  </script>
+
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      flatpickr("input[type=date]", {
+        minDate: "today",
+        dateFormat: "Y-m-d"
+      });
+    });
+  </script>
+</body>
+</html>
