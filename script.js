@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3. Why Choose Us — Animated Counter (fires once on scroll into view)
   const animateCounter = (el) => {
-    const target = parseInt(el.dataset.target, 10);
+    const target = parseFloat(el.dataset.target);
     const duration = 1800;
     const startTime = performance.now();
 
